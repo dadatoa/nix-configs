@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs,  ... }:
 {
   networking = {
     hostName = "nara17";
@@ -8,37 +8,70 @@
     firewall = {
       enable = false; # for testing purpose
     };
-
-    # bridges = {
-    #   "br0" = {
-    #     interfaces = [ "enp2s0" "wlp0s20f0u5" ];
-    #   };
-    # };
   };
 
+  fileSystems."/data/appdata" =
+    { device = "/dev/sda1";
+      fsType = "btrfs";
+      options = [ "subvol=appdata" "users" ];
+    };
+
+  fileSystems."/data/media" =
+    { device = "/dev/sda1";
+      fsType = "btrfs";
+      options = [ "subvol=media" "users" ];
+    };
+
+  fileSystems."/mnt/share" =
+    { device = "/dev/sda1";
+      fsType = "btrfs";
+      options = [ "subvol=share" "users" ];
+    };
+  fileSystems."/mnt/datapool" =
+    { device = "/dev/sda1";
+      fsType = "btrfs";
+      options = [ "no-auto" "users" ];
+    };
+
+  fileSystems."/mnt/share/torrent" =
+    { device = "/data/appdata/media/torrent/share";
+      fsType = "none";
+      options = [ "bind" "users" ];
+    };
+
+  
+
   services = {
+
     # samba file sharing
     samba = {
       package = pkgs.samba4Full;
       enable = true;
       openFirewall = true;
-      extraConfig = ''
-        workgroup = WORKGROUP
-        security = user
-        guest account = nobody
-        '';
+      # extraConfig = ''
+      #   workgroup = WORKGROUP
+      #   security = user
+      #   guest account = nobody
+      #   '';
       shares = {
-        share = {
-          path = /mnt/share;
+        photos = {
+          path = /mnt/share/photos;
           writable = "yes";
           browseable = "yes";
-          "guest ok" = "yes";
-          "read only" = "no";
-          "create mask" = "0644";
-          "directory mask" = "0755";
+          # "guest ok" = "yes";
+          # "read only" = "no";
+          # "create mask" = "0644";
+          # "directory mask" = "0755";
+        };
+
+        torrent = {
+          path = /mnt/share/torrent;
+          writable = "yes";
+          browseable = "yes";
         };
       };
     };
+
     # Avahi for auto discover bades on hostname
     avahi = {
       publish = {
@@ -48,6 +81,7 @@
       enable = true;
       openFirewall = true;
     };
+
     # samba-wsdd for autodiscovery on windows
     samba-wsdd = {
       enable = true;

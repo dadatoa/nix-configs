@@ -7,20 +7,20 @@
       package = pkgs.samba4Full;
       enable = true;
       openFirewall = true;
-      extraConfig = ''
-        workgroup = WORKGROUP
-        security = user
-        guest account = nobody
-        '';
+      # extraConfig = ''
+      #   workgroup = WORKGROUP
+      #   security = user
+      #   guest account = nobody
+      #   '';
       shares = {
-        share = {
-          path = /mnt/share;
+        photos = {
+          path = /mnt/share/photos;
           writable = "yes";
           browseable = "yes";
-          "guest ok" = "yes";
-          "read only" = "no";
-          "create mask" = "0644";
-          "directory mask" = "0755";
+          # "guest ok" = "yes";
+          # "read only" = "no";
+          # "create mask" = "0644";
+          # "directory mask" = "0755";
         };
       };
     };
