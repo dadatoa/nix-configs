@@ -80,8 +80,9 @@
     tailscale.enable = true;
 
     # Ollama
-    services.ollama.enable = true;
-    
+    ollama = { 
+      enable = true;
+    };
   };
 
   virtualisation = {
