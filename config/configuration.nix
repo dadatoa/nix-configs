@@ -78,6 +78,9 @@
     };
     # Enable Tailscale
     tailscale.enable = true;
+
+    # Ollama
+    services.ollama.enable = true;
     
   };
 
