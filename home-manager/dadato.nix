@@ -21,6 +21,7 @@ in
   home.packages = with pkgs; [
     bat
     btop
+    bun
     fish
     fzf 
     gh
@@ -36,6 +37,7 @@ in
     tmuxifier
     xclip
     zoxide
+    toto
   ];
 
   # Global theme : catppuccin
