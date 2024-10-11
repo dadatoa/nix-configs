@@ -33,7 +33,7 @@
       options = [ "no-auto" "users" ];
     };
 
-  fileSystems."/mnt/share/torrent" =
+  fileSystems."/mnt/share/public/Downloads" =
     { device = "/data/media/torrent/share";
       fsType = "none";
       options = [ "bind" "users" ];
@@ -48,27 +48,44 @@
       package = pkgs.samba4Full;
       enable = true;
       openFirewall = true;
-      extraConfig = ''
-        guest account = nobody
-        '';
-      #   workgroup = WORKGROUP
-      #   security = user
-
-      shares = {
-        photos = {
-          path = /mnt/share/photos;
-          writable = "yes";
-          browseable = "yes";
+      
+      settings = {
+        global = {
+          "guest account" = "nobody";
+          # "workgroup" = "WORKGROUP";
+          # "server string" = "smbnix";
+          # "netbios name" = "smbnix";
+          # security = user;
+        };
+        "Papa" = {
+          "path" = "/mnt/share/Papa";
+          "writable" = "yes";
+          "browseable" = "yes";
           # "guest ok" = "yes";
           # "read only" = "no";
           # "create mask" = "0644";
           # "directory mask" = "0755";
         };
 
-        torrent = {
-          path = /mnt/share/torrent;
-          writable = "yes";
-          browseable = "yes";
+        "Natcha" = {
+          "path" = "/mnt/share/Natcha";
+          "writable" = "yes";
+          "browseable" = "yes";
+          # "guest ok" = "yes";
+          # "read only" = "no";
+          # "create mask" = "0644";
+
+        };
+
+        "Public" = {
+          "path" = "/mnt/share/public";
+          "writable" = "yes";
+          "browsable" = "yes";
+          "guest ok" = "yes";
+          "read only" = "no";
+          "force user" = "nobody";
+          "force group" = "nogroup";
+          "create mask" = "666";
         };
 
         partage = {

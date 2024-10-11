@@ -5,7 +5,7 @@
     users.dadato = {
       isNormalUser = true;
       uid = 1000;
-      description = "individual user";
+      description = "individual user - services manager";
       extraGroups = [ "networkmanager" "docker" ];
       shell = pkgs.fish;
       openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab"];
@@ -20,13 +20,12 @@
       packages = with pkgs; [];
       };
 
-    # users.bill = {
-    #  isNormalUser = true;
-    #  description = "services manager";
-    #  extraGroups = [ "docker" "networkmanager" ];
-    #  openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab"];
-    #  packages = with pkgs; [];
-    #  };
+    users.natcha = {
+     isNormalUser = true;
+     description = "individual user";
+     # extraGroups = [ "docker" "networkmanager" ];
+     packages = with pkgs; [];
+     };
     
     };
 
