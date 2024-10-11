@@ -87,6 +87,17 @@
           "force group" = "nogroup";
           "create mask" = "666";
         };
+
+        "Public" = {
+          "path" = "/mnt/share/public";
+          "writable" = "yes";
+          "browsable" = "yes";
+          "guest ok" = "yes";
+          "read only" = "no";
+          "force user" = "nobody";
+          "force group" = "nogroup";
+          "create mask" = "666";
+        };
       };
     };
 
