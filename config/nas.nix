@@ -88,13 +88,13 @@
           "create mask" = "666";
         };
 
-        partage = {
-          path = /mnt/share/partage;
-          writable = "yes";
-          browsable = "yes";
+        "Public" = {
+          "path" = "/mnt/share/public";
+          "writable" = "yes";
+          "browsable" = "yes";
           "guest ok" = "yes";
           "read only" = "no";
-          "create mask" = "777";
+          "create mask" = "755";
         };
       };
     };
