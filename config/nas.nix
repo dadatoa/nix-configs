@@ -34,7 +34,7 @@
     };
 
   fileSystems."/mnt/share/torrent" =
-    { device = "/data/appdata/media/torrent/share";
+    { device = "/data/media/torrent/share";
       fsType = "none";
       options = [ "bind" "users" ];
     };
@@ -48,11 +48,12 @@
       package = pkgs.samba4Full;
       enable = true;
       openFirewall = true;
-      # extraConfig = ''
+      extraConfig = ''
+        guest account = nobody
+        '';
       #   workgroup = WORKGROUP
       #   security = user
-      #   guest account = nobody
-      #   '';
+
       shares = {
         photos = {
           path = /mnt/share/photos;
@@ -68,6 +69,15 @@
           path = /mnt/share/torrent;
           writable = "yes";
           browseable = "yes";
+        };
+
+        partage = {
+          path = /mnt/share/partage;
+          writable = "yes";
+          browsable = "yes";
+          "guest ok" = "yes";
+          "read only" = "no";
+          "create mask" = "777";
         };
       };
     };
