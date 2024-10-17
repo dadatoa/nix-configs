@@ -31,13 +31,13 @@ in
     pv
     rclone
     rsync
+    sesh
     starship
     stow
     tmux
     tmuxifier
     xclip
     zoxide
-    toto
   ];
 
   # Global theme : catppuccin
