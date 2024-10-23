@@ -8,6 +8,12 @@
       fzf-native = {
         enable = true;
       };
+      ui-select = {
+        enable = true;
+        settings = {
+          extensions.__raw = "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
+        };
+      };
     };
     settings = {
       defaults = {
