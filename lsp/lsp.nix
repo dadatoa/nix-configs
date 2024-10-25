@@ -10,7 +10,7 @@
         ansiblels = {enable = true;};
         astro = {enable = true;};
         gopls = {enable = true;};
-        helm-ls = {
+        helm_ls = {
           enable = true;
           extraOptions = {
             settings = {
@@ -24,12 +24,12 @@
         };
         html = {enable = true;};
         jsonls = {enable = true;};
-        lua-ls = {enable = true;};
+        lua_ls = {enable = true;};
         marksman = {enable = true;};
-        nil-ls = {enable = true;};
+        nil_ls = {enable = true;};
         pyright = {enable = true;};
         terraformls = {enable = true;};
-        ts-ls = {enable = true;};
+        ts_ls = {enable = true;};
         yamlls = {
           enable = true;
           extraOptions = {
