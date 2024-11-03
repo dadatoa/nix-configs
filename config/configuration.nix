@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./users.nix
-      ./nas.nix
+      # ./nas.nix
       ./systemcron.nix
     ];
 
