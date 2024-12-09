@@ -26,6 +26,13 @@
       serviceConfig.User = "dadato";
       startAt = "daily";
     };
- 
+    sync-appdata = {
+      path = [ pkgs.rclone ];
+      script = ''
+        rclone sync /data/appdata onedrive:appdata
+      '';
+      serviceConfig.User = "dadato";
+      startAt = "daily";
+    };    
   };
 }

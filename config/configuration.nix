@@ -58,6 +58,7 @@
   neovim
   nmap
   python3
+  sesh
   tailscale
   wget
   zsh
