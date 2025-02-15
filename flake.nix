@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, agenix, disko, nix-darwin, ... }: {
+  outputs = { self, nixpkgs, disko, nix-darwin, ... }: {
     nixosConfigurations = {
       aarch64virtIso = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
