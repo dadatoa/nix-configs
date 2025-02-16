@@ -19,10 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # microvm = {
+    #   url = "github:astro/microvm.nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs@{ self, nixpkgs, disko, nix-darwin, lix-module, ... }: {
@@ -39,7 +39,7 @@
       dadabook = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          ./microvm.nixosModules.host
+          # ./microvm.nixosModules.host
           ./hosts/darwin/dadabook.nix
           lix-module.nixosModules.default
         ];
