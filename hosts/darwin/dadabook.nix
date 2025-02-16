@@ -1,7 +1,7 @@
-configuration = {pkgs, lib, ...}: {
-  services.nix-daemon.enabled = true;
-  nix.settings.experimental-features = "nix-command flakes"
-
+{ pkgs, lib, ...}: {
+  # services.nix-daemon.enabled = true;
+  nix.settings.experimental-features = "nix-command flakes";
+  # enable systemd
   # used for backwards compatibility
   system.stateVersion = 5;
   
