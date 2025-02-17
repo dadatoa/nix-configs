@@ -13,7 +13,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   # boot.initrd.kernelModules = [ "wl" ];
-  boot.kernelModules = [ "88x2bu" ]; # "wl"
+  # boot.kernelModules = [ "88x2bu" ]; # "wl"
   # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -53,19 +53,19 @@
   curl 
   exfat 
   git
-  fish
-  home-manager
+  # fish
+  # home-manager
   neovim
   nmap
-  python3
-  sesh
+  # python3
+  # sesh
   tailscale
   wget
   zsh
   ];
 
   programs = {
-    fish.enable = true;
+    # fish.enable = true;
     zsh.enable = true;
   };
 
@@ -81,7 +81,7 @@
     tailscale.enable = true;
 
     # Ollama
-    ollama = { 
+    # ollama = { 
       enable = true;
     };
   };
