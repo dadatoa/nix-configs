@@ -1,8 +1,8 @@
 { config, pckgs, ... }:
 {
   imports = [
-    ./configuration.nix
-    ./hardware-configuration.nix
+    ../modules/base-config.nix
+    /etc/nixos/hardware-configuration.nix
   ];
 
   networking.hostName = "nixos-utm-lab-1";
