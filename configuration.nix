@@ -4,9 +4,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./users.nix
-      # ./nas.nix
-      ./systemcron.nix
     ];
 
   # Bootloader.
@@ -35,12 +32,6 @@
     LC_TIME = "fr_FR.utf8";
   };
   
-  # configure console
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
   # Enable experimental features 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -53,25 +44,18 @@
   curl 
   exfat 
   git
-  # fish
-  # home-manager
   neovim
   nmap
-  # python3
-  # sesh
   tailscale
   wget
-  zsh
   ];
 
-  programs = {
-    # fish.enable = true;
-    zsh.enable = true;
-  };
+  # Enable networking config with network manager
+  networking.networkmanager.enable = true;
 
   services = {
     # enable autorandr pour autodetect monitors 
-    autorandr.enable = true;
+    # autorandr.enable = true;
     # Enable ssh
     openssh = {
       enable = true;
@@ -79,11 +63,6 @@
     };
     # Enable Tailscale
     tailscale.enable = true;
-
-    # Ollama
-    # ollama = { 
-      enable = true;
-    };
   };
 
   virtualisation = {
