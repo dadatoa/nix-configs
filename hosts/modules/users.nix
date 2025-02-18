@@ -13,6 +13,7 @@
 
     users.nixos = { # admin user defined to nixos
       isNormalUser = true;
+      uid = 1001;
       description = "admin system";
       extraGroups = [ "wheel" "networkmanager" ];
       packages = with pkgs; [];
@@ -20,6 +21,7 @@
 
     users.natcha = {
      isNormalUser = true;
+     uid = 1002;
      description = "individual user";
      # extraGroups = [ "docker" "networkmanager" ];
      packages = with pkgs; [];

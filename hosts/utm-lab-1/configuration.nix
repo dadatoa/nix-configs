@@ -2,10 +2,11 @@
 {
   imports = [
     ../modules/base-config.nix
+    ../modules/users.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
-  networking.hostName = "nixos-utm-lab-1";
+  networking.hostName = "utm-lab-1";
   networking.firewall.enable = false;
   
 }

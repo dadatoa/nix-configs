@@ -81,7 +81,17 @@
       # };
     };
   };
-  
+ 
+  # Avahi for auto discover based on hostname
+  avahi = {
+    publish = {
+      enable = true;
+      userServices = true;
+    };
+    enable = true;
+    openFirewall = true;
+  };
+ 
 
   system.stateVersion = "24.11";
 }
