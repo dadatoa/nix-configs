@@ -7,7 +7,7 @@
       uid = 1000;
       description = "individual user - services manager";
       extraGroups = [ "networkmanager" "docker" ];
-      shell = pkgs.fish;
+      # shell = pkgs.fish;
       packages = with pkgs; [];
       };
 
