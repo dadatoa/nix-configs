@@ -63,6 +63,17 @@
     };
     # Enable Tailscale
     tailscale.enable = true;
+
+  # Avahi for auto discover based on hostname
+    avahi = {
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+      enable = true;
+      openFirewall = true;
+    };
+
   };
 
   virtualisation = {
@@ -80,16 +91,6 @@
         # setSocketVariable = true;
       # };
     };
-  };
- 
-  # Avahi for auto discover based on hostname
-  avahi = {
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-    enable = true;
-    openFirewall = true;
   };
  
 
