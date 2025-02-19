@@ -22,14 +22,11 @@ boot.extraModulePackages = [
   }))
 ];
 
-environment.systemPackages = with pkgs; [
-  git
-  curl
-  wget
-  python3
-  ansible
-  neovim
-];
+# add some packages to installer
+# environment.systemPackages = with pkgs; [
+#   ansible
+#   git
+# ];
 
 # Enable networking
 networking.networkmanager.enable = true;
@@ -42,13 +39,12 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 nixpkgs.config.allowUnfree = true;
 
 # SSh key for nixos default account
-users.users.nixos.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab" ];
+users.users.nixos.openssh.authorizedKeys.keys = [ 
+  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC71gpsZF1R1jd5MuCIKN94s7+HQ810T+r2euzFP96Rc installer"
+ ];
+
 users.users.nixos.initialPassword = "nixos";
 
-# Enable ssh
-services.openssh = {
-  enable = true;
-};
 # bigger image, shorter compilation time
 isoImage.squashfsCompression = "lz4";
 

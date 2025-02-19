@@ -33,6 +33,14 @@
           ./customIso/aarch64virt.nix 
           ];
       };
+      utm-lab-1 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [ 
+          inputs.disko.nixosModules.default
+          (import ./disko.nix { device = "/dev/vda";})
+          ./hosts/utm-lab-1/configuration.nix
+          ];
+      };
     };
 
     darwinConfigurations = {

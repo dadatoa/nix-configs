@@ -1,5 +1,13 @@
 { config, lib, pkgs,  ... }:
 {
+
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+    ../modules/base-config.nix
+    ../modules/users.nix
+
+    ./systemcron.nix
+  ]
   networking = {
     hostName = "nara17";
     ## enable networking config with network manager
@@ -90,16 +98,7 @@
       };
     };
 
-    # Avahi for auto discover bades on hostname
-    avahi = {
-      publish = {
-        enable = true;
-        userServices = true;
-      };
-      enable = true;
-      openFirewall = true;
-    };
-
+    
     # samba-wsdd for autodiscovery on windows
     samba-wsdd = {
       enable = true;
