@@ -45,10 +45,6 @@ users.users.nixos.openssh.authorizedKeys.keys = [
 
 users.users.nixos.initialPassword = "nixos";
 
-# Enable ssh
-services.openssh = {
-  enable = true;
-};
 # bigger image, shorter compilation time
 isoImage.squashfsCompression = "lz4";
 
