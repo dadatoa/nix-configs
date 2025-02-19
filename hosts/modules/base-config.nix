@@ -53,6 +53,9 @@
   # Enable networking config with network manager
   networking.networkmanager.enable = true;
 
+  # start ssh-agent
+  programs.ssh.startAgent = true;
+
   services = {
     # enable autorandr pour autodetect monitors 
     # autorandr.enable = true;
@@ -61,10 +64,12 @@
       enable = true;
       openFirewall = true;
     };
+
+
     # Enable Tailscale
     tailscale.enable = true;
 
-  # Avahi for auto discover based on hostname
+    # Avahi for auto discover based on hostname
     avahi = {
       publish = {
         enable = true;
