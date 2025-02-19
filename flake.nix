@@ -41,6 +41,14 @@
           ./hosts/utm-lab-1/configuration.nix
           ];
       };
+      nara17 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          inputs.disko.nixosModules.default
+          (import ./disko.nix { device = "/dev/vda";})
+          ./hosts/nara17/configuration.nix
+          ];
+      };
     };
 
     darwinConfigurations = {
