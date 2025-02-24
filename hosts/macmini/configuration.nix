@@ -8,7 +8,7 @@
   
   # resodre le prob de nomodetest?
   # boot.initrd.kernelModules = [ fbcon ];
-  boot.kernelParams = [ nomodeset ];
+  boot.kernelParams = [ "vga=0x317" "nomodeset" ];
   networking.hostName = "macmini";
   networking.firewall.enable = false;
   
@@ -23,11 +23,6 @@
     docker = {
       enable = true;
       liveRestore = false; # docker swarm
-        # rootless = {
-        # enable = true;
-        # setSocketVariable = true;
-      # };
     };
   };
-  
 }
