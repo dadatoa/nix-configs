@@ -33,11 +33,17 @@
           ./customIso/aarch64virt.nix 
           ];
       };
+      x86_64Iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          ./customIso/x86_64.nix 
+          ];
+      };
       utm-lab-1 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [ 
           inputs.disko.nixosModules.default
-          (import ./disko.nix { device = "/dev/vda";})
+          (import ./hosts/utm-lab-1/disko.nix { device = "/dev/vda";})
           ./hosts/utm-lab-1/configuration.nix
           ];
       };
@@ -45,9 +51,17 @@
         system = "x86_64-linux";
         modules = [ 
           inputs.disko.nixosModules.default
-          (import ./disko.nix { device = "/dev/vda";})
+          (import ./hosts/nara17/disko.nix { device = "/dev/nvme0n1";})
           ./hosts/nara17/configuration.nix
-          ];
+        ];
+      };
+      macmini = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          inputs.disko.nixosModules.default
+          (import ./hosts/macmini/disko.nix { device = "/dev/sdb";})
+          ./hosts/macmini/configuration.nix
+        ];
       };
     };
 

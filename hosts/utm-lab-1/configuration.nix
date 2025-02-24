@@ -1,8 +1,8 @@
 { config, pckgs, ... }:
 {
   imports = [
-    ../modules/base-config.nix
-    ../modules/users.nix
+    ../common-modules/configuration.nix
+    ../common-modules/users.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
