@@ -6,6 +6,8 @@
     /etc/nixos/hardware-configuration.nix
   ];
   
+  boot.kernelParams = [ "vga=0x317" "nomodeset" ];
+  
   networking.hostName = "macmini";
   networking.firewall.enable = false;
 
