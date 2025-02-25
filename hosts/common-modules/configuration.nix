@@ -47,7 +47,10 @@
   git
   neovim
   nmap
+  overmind # process manager
+  pv # progress bar when copy file
   tailscale
+  tmux
   wget
   ];
 
