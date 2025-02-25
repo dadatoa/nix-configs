@@ -1,4 +1,4 @@
-{ config, pckgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../common-modules/configuration.nix
