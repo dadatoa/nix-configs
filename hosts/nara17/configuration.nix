@@ -3,8 +3,8 @@
   imports = [
     ../common-modules/configuration.nix
     ../common-modules/users.nix
+    ../common-modules/virtualisation.nix
     ./storage.nix
-    ./virtualisation.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
