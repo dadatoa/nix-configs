@@ -11,7 +11,7 @@
             size = "100%";
             content = {
               type = "lvm_pv";
-              vg = "orico";
+              vg = "orico-pool";
             };
           };  
         };
@@ -28,14 +28,16 @@
             size = "100%";
             content = {
               type = "lvm_pv";
-              vg = "orico";
+              vg = "orico-pool";
             };
           };  
         };
       };
     };
     };
+
     lvm_vg = {
+    orico-pool = {
       type = "lvm_vg";
       lvs = {
         backup_lv = {
@@ -47,6 +49,6 @@
         };
       };
     };
-
+    };
   };
 }
