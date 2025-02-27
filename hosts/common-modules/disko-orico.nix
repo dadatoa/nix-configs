@@ -1,6 +1,6 @@
 {
   disko.devices = {
-    
+    disk = {
     orico1 = {
       type = "disk";
       device = "/dev/disk/by-id/ata-TOSHIBA_DT01ACA050_X8LDNTAKS";
@@ -34,7 +34,7 @@
         };
       };
     };
-
+    };
     lvm_vg = {
       type = "lvm_vg";
       lvs = {
