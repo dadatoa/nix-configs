@@ -38,7 +38,7 @@
     lvm_vg = {
       type = "lvm_vg";
       lvs = {
-        backup_vg = {
+        backup_lv = {
           size = "50%FREE";
           content = {
             type = "btrfs";
