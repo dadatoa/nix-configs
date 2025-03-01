@@ -26,6 +26,7 @@
     git
     glab
     lazygit
+    nmap
     nodejs
     neovim
     fastfetch
