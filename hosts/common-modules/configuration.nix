@@ -49,6 +49,7 @@
   nmap
   overmind # process manager
   pv # progress bar when copy file
+  sesh
   tailscale
   tmux
   wget
