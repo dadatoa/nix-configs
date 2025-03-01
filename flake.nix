@@ -70,7 +70,7 @@
         system = "aarch64-darwin";
         modules = [
           # ./microvm.nixosModules.host
-          ./hosts/darwin/dadabook.nix
+          ./darwin/dadabook.nix
           lix-module.nixosModules.default
         ];
       };
