@@ -45,11 +45,11 @@
   curl 
   exfat 
   git
+  hdparm
   neovim
   nmap
   overmind # process manager
   pv # progress bar when copy file
-  sesh
   tailscale
   tmux
   wget
@@ -82,6 +82,23 @@
       };
       enable = true;
       openFirewall = true;
+    };
+
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+      settings = {
+        "ata-WDC_WD40PURX-64AKYY0_WD-WX92DA1J6L8Z" = {
+          ATA = {
+            StandbyTimeout = "240";
+          }; 
+        };
+        "ata-TOSHIBA_DT01ACA050_X8LDNTAKS" = {
+          ATA = {
+            StandbyTimeout = "240";
+          }; 
+        };
+      };
     };
 
   };
