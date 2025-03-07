@@ -1,4 +1,4 @@
-{ pkgs, lib, ...}: {
+{ pkgs, lib, inputs, ...}: {
   # services.nix-daemon.enabled = true;
   nix.settings.experimental-features = "nix-command flakes";
   # enable systemd
@@ -17,6 +17,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    inputs.nixvim.packages.${system}.default
     bat
     docker
     eza
