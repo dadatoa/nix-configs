@@ -30,6 +30,7 @@
     nodejs
     neovim
     fastfetch
+    overmind # process manager
     rclone
     rsync
     sesh
