@@ -52,6 +52,7 @@
   pv # progress bar when copy file
   tailscale
   tmux
+  wezterm # to use with wezterm connect command
   wget
   ];
 
