@@ -47,7 +47,7 @@
         system = "aarch64-linux";
         modules = [ 
           inputs.disko.nixosModules.default
-          (import ./hosts/utm-lab-1/disko.nix { device = "/dev/vda";})
+          (import ./nixos/utm-lab-1/disko.nix { device = "/dev/vda";})
           ./hosts/utm-lab-1/configuration.nix
           ];
       };
@@ -55,7 +55,7 @@
         system = "x86_64-linux";
         modules = [ 
           inputs.disko.nixosModules.default
-          (import ./hosts/nara17/disko.nix { device = "/dev/nvme0n1";})
+          (import ./nixos/nara17/disko.nix { device = "/dev/nvme0n1";})
           ./hosts/nara17/configuration.nix
         ];
       };
@@ -63,7 +63,7 @@
         system = "x86_64-linux";
         modules = [ 
           inputs.disko.nixosModules.default
-          (import ./hosts/macmini/disko.nix { device = "/dev/sdb";})
+          (import ./nixos/macmini/disko.nix { device = "/dev/sdb";})
           ./hosts/macmini/configuration.nix
         ];
       };
