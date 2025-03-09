@@ -1,4 +1,4 @@
-{ pkgs, lib, ...}: {
+{ pkgs, lib, inputs, ...}: {
   # services.nix-daemon.enabled = true;
   nix.settings.experimental-features = "nix-command flakes";
   # enable systemd
@@ -6,7 +6,7 @@
   system.stateVersion = 5;
   
   # fingerprint for sudo
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
     config = {
@@ -17,6 +17,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    inputs.nixvim.packages.${system}.default
     bat
     docker
     eza
@@ -30,6 +31,7 @@
     nodejs
     neovim
     fastfetch
+    overmind # process manager
     rclone
     rsync
     sesh

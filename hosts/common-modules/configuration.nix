@@ -44,15 +44,19 @@
   btrfs-progs
   curl 
   exfat 
+  fzf
   git
   hdparm
   neovim
   nmap
   overmind # process manager
   pv # progress bar when copy file
+  sesh
   tailscale
   tmux
+  wezterm # to use with wezterm connect command
   wget
+  zoxide
   ];
 
   # Enable networking config with network manager
@@ -73,6 +77,7 @@
 
     # Enable Tailscale
     tailscale.enable = true;
+    tailscale.openFirewall = true;
 
     # Avahi for auto discover based on hostname
     avahi = {

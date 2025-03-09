@@ -18,7 +18,11 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    nixvim = {
+      url = "github:dadatoa/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # microvm = {
     #   url = "github:astro/microvm.nix";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -68,6 +72,7 @@
     darwinConfigurations = {
       dadabook = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        specialArgs = { inherit inputs; };
         modules = [
           # ./microvm.nixosModules.host
           ./darwin/dadabook.nix
