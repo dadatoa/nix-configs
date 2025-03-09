@@ -48,7 +48,7 @@
         modules = [ 
           inputs.disko.nixosModules.default
           (import ./nixos/utm-lab-1/disko.nix { device = "/dev/vda";})
-          ./hosts/utm-lab-1/configuration.nix
+          ./nixos/utm-lab-1/configuration.nix
           ];
       };
       nara17 = nixpkgs.lib.nixosSystem {
@@ -56,7 +56,7 @@
         modules = [ 
           inputs.disko.nixosModules.default
           (import ./nixos/nara17/disko.nix { device = "/dev/nvme0n1";})
-          ./hosts/nara17/configuration.nix
+          ./nixos/nara17/configuration.nix
         ];
       };
       macmini = nixpkgs.lib.nixosSystem {
@@ -64,7 +64,7 @@
         modules = [ 
           inputs.disko.nixosModules.default
           (import ./nixos/macmini/disko.nix { device = "/dev/sdb";})
-          ./hosts/macmini/configuration.nix
+          ./nixos/macmini/configuration.nix
         ];
       };
     };
