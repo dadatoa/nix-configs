@@ -7,7 +7,7 @@
       uid = 1000;
       description = "individual user - services manager";
       extraGroups = [ "networkmanager" "docker" ];
-      shell = pkgs.fish;
+      # shell = pkgs.fish;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab"
       ];
