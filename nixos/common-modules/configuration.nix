@@ -43,9 +43,12 @@
   environment.systemPackages = with pkgs; [
   btrfs-progs
   curl 
-  exfat 
+  exfat
+  fish
   fzf
+  gh
   git
+  glab
   hdparm
   neovim
   nmap
