@@ -56,7 +56,7 @@
   tmux
   wezterm # to use with wezterm connect command
   wget
-  zoxyde
+  zoxide
   ];
 
   # Enable networking config with network manager
