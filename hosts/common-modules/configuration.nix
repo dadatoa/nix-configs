@@ -52,9 +52,9 @@
   overmind # process manager
   pv # progress bar when copy file
   sesh
+  starship
   tailscale
   tmux
-  wezterm # to use with wezterm connect command
   wget
   zoxide
   ];
