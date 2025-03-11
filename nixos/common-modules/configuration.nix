@@ -41,6 +41,7 @@
   nixpkgs.config.allowUnfree = true; # defined in flake
 
   environment.systemPackages = with pkgs; [
+  ansible
   btrfs-progs
   curl 
   exfat
@@ -53,6 +54,7 @@
   neovim
   nmap
   overmind # process manager
+  python3Minimal
   pv # progress bar when copy file
   sesh
   starship
