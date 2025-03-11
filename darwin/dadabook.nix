@@ -21,6 +21,7 @@
     bat
     docker
     eza
+    ext4fuse
     fish
     fzf
     gh
