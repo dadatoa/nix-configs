@@ -18,9 +18,11 @@
 
   environment.systemPackages = with pkgs; [
     inputs.nixvim.packages.${system}.default
+    ansible
     bat
     docker
     eza
+    ext4fuse
     fish
     fzf
     gh
@@ -32,6 +34,7 @@
     neovim
     fastfetch
     overmind # process manager
+    python3Minimal
     rclone
     rsync
     sesh
