@@ -1,19 +1,24 @@
-{ pkgs, lib, inputs, ...}: {
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   # services.nix-daemon.enabled = true;
   nix.settings.experimental-features = "nix-command flakes";
   # enable systemd
   # used for backwards compatibility
   system.stateVersion = 5;
-  
+
   # fingerprint for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
     config = {
       allowUnfree = true;
-    }; 
+    };
   };
-  
+
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -26,15 +31,14 @@
     fish
     fzf
     gh
+    # ghostty
     git
     glab
     lazygit
     nmap
     nodejs
-    neovim
     fastfetch
     overmind # process manager
-    python3Minimal
     rclone
     rsync
     sesh
