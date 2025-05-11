@@ -10,10 +10,11 @@
 
   networking.hostName = "nara17";
   networking.firewall.enable = false;
-  networking.interfaces.enp2s0.ipv4.addresses = [{
-        address = "192.168.0.2";
-        prefixLength = 24;
-    }];
+  # networking.interfaces.enp2s0.ipv4.addresses = [{
+  #       address = "192.168.8.26";
+  #       prefixLength = 24;
+  #   }];
+  # networking.interfaces.enp2s0.dhcp.enable = true;
 
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
