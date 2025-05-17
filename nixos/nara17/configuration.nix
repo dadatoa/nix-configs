@@ -33,12 +33,12 @@
   };
 
   # dhcp
-  services.dnsmasq.enable = true;
-  services.dnsmasq.settings = {
-    # port = 0;
-    dhcp-range = ["10.120.17.21,10.120.17.64,48h"];
-    dhcp-option = "3,10.120.17.1";
-  };
+  # services.dnsmasq.enable = true;
+  # services.dnsmasq.settings = {
+  #   # port = 0;
+  #   dhcp-range = ["10.120.17.21,10.120.17.64,48h"];
+  #   dhcp-option = "3,10.120.17.1";
+  # };
 
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
