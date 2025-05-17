@@ -35,7 +35,7 @@
   # dhcp
   services.dnsmasq.enable = true;
   services.dnsmasq.settings = {
-    port = 0; # de-activate dns
+    # port = 0;
     dhcp-range = ["10.120.17.21,10.120.17.64,48h"];
     dhcp-option = "3,10.120.17.1";
   };
