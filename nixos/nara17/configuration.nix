@@ -13,7 +13,7 @@
   ];
 
   networking.hostName = "nara17";
-
+  networking.useDHCP = false;
   # No local firewall.
   nat.enable = false;
   firewall.enable = false;
@@ -33,12 +33,17 @@
   };
 
   # dhcp
-  # services.dnsmasq.enable = true;
-  # services.dnsmasq.settings = {
-  #   # port = 0;
-  #   dhcp-range = ["10.120.17.21,10.120.17.64,48h"];
-  #   dhcp-option = "3,10.120.17.1";
-  # };
+  services.dnsmasq.enable = true;
+  services.dnsmasq.settings = {
+    server = ["9.9.9.9" "8.8.8.8" "1.1.1.1"];
+    domain-needed = true;
+    bogus-priv = true;
+    no-resolv = true;
+
+    dhcp-range = ["enp2s0,10.120.17.21,10.120.17.64,48h"];
+    dhcp-option = ["3,10.120.17.1"];
+    dhcp-authoritative = true;
+  };
 
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
