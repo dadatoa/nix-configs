@@ -23,9 +23,7 @@
         address = [
           "10.120.17.5/24"
         ];
-        networkConfig = {
-          gateway = "10.120.17.1";
-        };
+        gateway = "10.120.17.1";
       };
     };
   };
