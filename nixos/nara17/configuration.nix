@@ -13,9 +13,22 @@
   ];
 
   networking.hostName = "nara17";
-  networking.firewall.enable = false;
-  networking.interfaces.enp2s0.wakeOnLan.enable = true;
 
+  systemd.network = {
+    enable = true;
+    wait-online.anyInterface = true;
+    networks = {
+      "30-lan" = {
+        matchConfig.Name = "enp2s0";
+        address = [
+          "10.120.17.5/24"
+        ];
+        networkConfig = {
+          gateway = "10.120.17.1";
+        };
+      };
+    };
+  };
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
   services.samba.openFirewall = true;
