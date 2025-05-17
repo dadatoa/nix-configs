@@ -14,6 +14,11 @@
 
   networking.hostName = "nara17";
 
+  # No local firewall.
+  nat.enable = false;
+  firewall.enable = false;
+
+  # config reseau
   systemd.network = {
     enable = true;
     wait-online.anyInterface = true;
@@ -26,6 +31,15 @@
       };
     };
   };
+
+  # dhcp
+  services.dnsmasq.enable = true;
+  services.dnsmasq.settings = {
+    port = 0; # de-activate dns
+    dhcp-range = ["10.120.17.21,10.120.17.64,48h"];
+    dhcp-option = "3,10.120.17.1";
+  };
+
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
   services.samba.openFirewall = true;
