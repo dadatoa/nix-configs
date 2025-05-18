@@ -18,4 +18,12 @@
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
   services.samba.openFirewall = true;
+
+  ## manage network with systemd
+  systemd.networkd.enable = true;
+  systemd.network.networks."30-lan" = {
+    enable = true;
+    matchConfig.Name = "enp2s0f0";
+    networkConfig.DHCP = "ipv4";
+  };
 }
