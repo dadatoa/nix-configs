@@ -20,7 +20,7 @@
   services.samba.openFirewall = true;
 
   ## manage network with systemd
-  systemd.networkd.enable = true;
+  systemd.network.enable = true;
   systemd.network.networks."30-lan" = {
     enable = true;
     matchConfig.Name = "enp2s0f0";
