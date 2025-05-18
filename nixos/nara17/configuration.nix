@@ -13,8 +13,28 @@
   ];
 
   networking.hostName = "nara17";
+  networking.hostId = "deadb33f";
   networking.firewall.enable = false;
-  networking.interfaces.enp2s0.wakeOnLan.enable = true;
+
+  networking.interfaces.enp2s0 = {
+    wakeOnLan.enable = true;
+  };
+
+  networking.interfaces.vlan100 = {
+    ipv4.addresses = [
+      {
+        address = "10.120.17.130";
+        prefixLentgh = 25;
+      }
+    ];
+  };
+
+  networking.vlans = {
+    vlan100 = {
+      id = 100;
+      interface = "enp2s0";
+    };
+  };
 
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
