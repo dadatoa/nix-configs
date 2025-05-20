@@ -65,7 +65,7 @@
   ];
 
   # Enable networking config with network manager
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   # start ssh-agent
   programs.ssh.startAgent = true;
