@@ -24,14 +24,18 @@
   networking.networkmanager.enable = false;
 
   ## wireless-related configuration
-  networking.wireless.enable = true;
-  networking.wireless.secretsFile = "/run/secrets/wireless.conf";
-  networking.wireless.networks."Natcha5G" = {
-    pskRaw = "ext:natcha17_psk";
+  networking.wireless = { 
+    enable = true;
+    secretsFile = "/run/secrets/wireless.conf";
+    interfaces = [
+      "wlp0s20f0u1"
+    ];
+    networks."Natcha5G" = {
+      pskRaw = "ext:natcha17_psk";
+    };
+    ## allow user (wheel group) to interact with wpa_supplicant
+    userControlled.enable = true;
   };
-  ## allow user (wheel group) to interact with wpa_supplicant
-  networking.wireless.userControlled.enable = true;
-
   ## manage network with systemd
   systemd.network.enable = true;
 
