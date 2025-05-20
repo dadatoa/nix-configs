@@ -21,12 +21,12 @@
   };
 
   networking.interfaces.vlan100 = {
-    # ipv4.addresses = [
-    #   {
-    #     address = "10.120.17.254";
-    #     prefixLength = 25;
-    #   }
-    # ];
+    ipv4.addresses = [
+      {
+        address = "10.120.17.250";
+        prefixLength = 26;
+      }
+    ];
   };
 
   networking.vlans = {
