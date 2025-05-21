@@ -8,7 +8,7 @@
     ../common-modules/users.nix
     ../common-modules/virtualisation.nix
     /etc/nixos/hardware-configuration.nix
-    ./variables.nix
+    ./lan.nix
   ];
 
   networking.hostName = "utmlab-1";
