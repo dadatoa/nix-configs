@@ -11,9 +11,7 @@
     ./variables.nix
   ];
 
-  variables.hostname = "virtual1";
-
-  networking.hostName = variables.hostname; ##"utm-lab-1";
+  networking.hostName = "utmlab-1";
   networking.firewall.enable = false;
   environment.systemPackages = [
     pkgs.sqlite
