@@ -4,6 +4,7 @@
   ...
 }: {
   ## manage network with systemd
+  networking.useNetworkd = true;
   systemd.network.enable = true;
   systemd.network = {
     ## declare vlan
