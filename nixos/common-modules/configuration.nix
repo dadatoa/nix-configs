@@ -42,6 +42,7 @@
 
   environment.systemPackages = with pkgs; [
   ansible
+  bat
   btrfs-progs
   curl 
   exfat
@@ -51,6 +52,7 @@
   git
   glab
   hdparm
+  lazygit
   neovim
   nmap
   overmind # process manager
