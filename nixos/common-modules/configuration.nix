@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      # ./hardware-configuration.nix
-    ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    # ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -32,53 +34,54 @@
     LC_TELEPHONE = "fr_FR.utf8";
     LC_TIME = "fr_FR.utf8";
   };
-  
 
-  # Enable experimental features 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable experimental features
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # allow unfree packages 
+  # allow unfree packages
   nixpkgs.config.allowUnfree = true; # defined in flake
 
   environment.systemPackages = with pkgs; [
-  ansible
-  btrfs-progs
-  curl 
-  exfat
-  fish
-  fzf
-  gh
-  git
-  glab
-  hdparm
-  neovim
-  nmap
-  overmind # process manager
-  python3Minimal
-  pv # progress bar when copy file
-  sesh
-  starship
-  tailscale
-  tmux
-  wget
-  zoxide
+    inputs.nixvim.packages.${system}.default
+    ansible
+    bat
+    btrfs-progs
+    curl
+    exfat
+    fish
+    fzf
+    gh
+    git
+    glab
+    hdparm
+    lazygit
+    # neovim
+    nmap
+    overmind # process manager
+    python3Minimal
+    pv # progress bar when copy file
+    sesh
+    starship
+    tailscale
+    tmux
+    wget
+    zoxide
   ];
 
   # Enable networking config with network manager
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   # start ssh-agent
   programs.ssh.startAgent = true;
 
   services = {
-    # enable autorandr pour autodetect monitors 
+    # enable autorandr pour autodetect monitors
     # autorandr.enable = true;
     # Enable ssh
     openssh = {
       enable = true;
       openFirewall = true;
     };
-
 
     # Enable Tailscale
     tailscale.enable = true;
@@ -101,19 +104,16 @@
         "ata-WDC_WD40PURX-64AKYY0_WD-WX92DA1J6L8Z" = {
           ATA = {
             StandbyTimeout = "240";
-          }; 
+          };
         };
         "ata-TOSHIBA_DT01ACA050_X8LDNTAKS" = {
           ATA = {
             StandbyTimeout = "240";
-          }; 
+          };
         };
       };
     };
-
   };
-
-   
 
   system.stateVersion = "24.11";
 }
