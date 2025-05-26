@@ -40,7 +40,6 @@
     nixosConfigurations = {
       aarch64virtIso = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = {inherit inputs;};
         modules = [
           ./customIso/aarch64virt.nix
         ];
