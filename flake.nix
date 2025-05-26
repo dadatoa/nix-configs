@@ -53,6 +53,7 @@
       };
       utmlab-1 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           inputs.disko.nixosModules.default
           (import ./nixos/utmlab-1/disko.nix {device = "/dev/vda";})
@@ -61,6 +62,7 @@
       };
       nara17 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           inputs.disko.nixosModules.default
           (import ./nixos/nara17/disko.nix {device = "/dev/nvme0n1";})
@@ -69,6 +71,7 @@
       };
       macmini = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           inputs.disko.nixosModules.default
           (import ./nixos/macmini/disko.nix {device = "/dev/sdb";})
