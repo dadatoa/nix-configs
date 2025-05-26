@@ -24,7 +24,7 @@
   networking.networkmanager.enable = false;
 
   ## wireless-related configuration
-  networking.wireless = { 
+  networking.wireless = {
     enable = true;
     secretsFile = "/run/secrets/wireless.conf";
     interfaces = [

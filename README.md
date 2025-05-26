@@ -1,5 +1,9 @@
 # My nixos system flake
 
+## TODO
+
+- [] issue with wifi in nara17 config : wifi ssid and passphrase does not get to config file in hosts
+- [] put the network config in a separate file like for utmlab-1
 ## system Flake
 
 The name of the specific flake to build the system is `myNixos`. So to rebuild the system you need to type this command as root or with `sudo` :
