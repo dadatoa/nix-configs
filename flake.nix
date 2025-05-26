@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "My personal nix and nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -40,7 +40,6 @@
     nixosConfigurations = {
       aarch64virtIso = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = {inherit inputs;};
         modules = [
           ./customIso/aarch64virt.nix
         ];
