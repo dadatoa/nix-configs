@@ -57,6 +57,8 @@
           inputs.disko.nixosModules.default
           (import ./nixos/utmlab-1/disko.nix {device = "/dev/vda";})
           ./nixos/utmlab-1/configuration.nix
+          # (import ./nixos/utm-lab-1/disko.nix {device = "/dev/vda";})
+          # ./nixos/utm-lab-1/configuration.nix
         ];
       };
       nara17 = nixpkgs.lib.nixosSystem {
