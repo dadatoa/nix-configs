@@ -20,16 +20,16 @@
   programs.zsh.enable = true;
 
 
-  programs.nixvim = {
-    enable = true;
-    imports = [
-      ../nixvim
-    ];
-    # nixpkgs.useGlobalPackages = true;
-  };
+  # programs.nixvim = {
+  #   enable = true;
+  #   imports = [
+  #     ./nixvim.nix
+  #   ];
+  #   # nixpkgs.useGlobalPackages = true;
+  # };
 
   environment.systemPackages = with pkgs; [
-    # inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${system}.default
     ansible
     bat
     docker
