@@ -1,6 +1,6 @@
 {
   dependencies = {
-    codeium.enable = true;
+    # codeium.enable = true;
     ripgrep.enable = true;
     wezterm.enable = true;
   };
