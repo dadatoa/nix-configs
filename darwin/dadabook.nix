@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   # services.nix-daemon.enabled = true;
   nix.settings.experimental-features = "nix-command flakes";
@@ -24,8 +23,8 @@
   programs.nixvim = {
     enable = true;
     imports = [
-      ./nixvim.nix
-    ]; 
+      ../nixvim
+    ];
     # nixpkgs.useGlobalPackages = true;
   };
 
