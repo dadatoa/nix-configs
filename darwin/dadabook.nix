@@ -21,7 +21,9 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
+    # inputs.nixvim.packages.${system}.default
+    codeium
+
     ansible
     bat
     docker
