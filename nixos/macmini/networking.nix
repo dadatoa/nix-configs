@@ -2,6 +2,12 @@
 , lib
 , ...
 }: {
+
+  networking.hostName = "macmini";
+
+  networking.firewall.enable = false;
+  networking.interfaces.enp2s0f0.wakeOnLan.enable = true;
+
   ## manage network with systemd
   networking.useNetworkd = true;
   systemd.network.enable = true;
@@ -23,7 +29,7 @@
     networks = {
       "30-lan" = {
         enable = true;
-        matchConfig.Name = "enp0s1";
+        matchConfig.Name = "enp2s0f0";
         networkConfig.DHCP = "ipv4";
         ## add vlans on physical interface
         vlan = [
@@ -34,11 +40,23 @@
       "50-vlan100" = {
         matchConfig.Name = "vlan100";
         address = [
-          "10.120.17.240/26"
+          "10.120.17.254/26"
           # "fd42:23:42:b865::1/64"
           # "fe80::1/64"
         ];
       };
     };
+  };
+
+  ## wireless
+  networking.wireless = {
+    enable = true;
+    # secretsFile = "/run/secrets/wireless.conf";
+    interfaces = [
+      "wlp3s0"
+    ];
+    # networks."Natcha5G" = {
+    #   pskRaw = "ext:natcha17_psk";
+    # };
   };
 }
