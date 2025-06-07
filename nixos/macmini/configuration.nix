@@ -11,6 +11,7 @@
 
   environment.systemPackages = with pkgs; [
     thunderbolt
+    canon-capt
   ];
 
   ## boot fail on mac mini without these
@@ -30,9 +31,6 @@
     openFirewall = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    canon-capt
-  ];
 
   services.avahi = {
   enable = true;
