@@ -38,7 +38,7 @@
     fish
     fzf
     gh
-    # ghostty
+    # ghostty  ## broken package
     git
     glab
     lazygit

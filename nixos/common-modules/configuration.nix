@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -20,6 +19,16 @@
   # Set your time zone.
   time.timeZone = "Asia/Bangkok";
 
+  ## Automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  ## Optimise Nix store at every build
+  nix.settings.auto-optimise-store = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "fr_FR.UTF-8";
 
@@ -36,7 +45,7 @@
   };
 
   # Enable experimental features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true; # defined in flake
