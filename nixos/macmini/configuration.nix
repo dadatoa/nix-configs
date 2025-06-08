@@ -9,9 +9,17 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    thunderbolt
+    canon-capt
+  ];
+
   ## boot fail on mac mini without these
   boot.kernelParams = [ "vga=0x317" "nomodeset" ];
 
+  ## Thunderbolt support
+  services.hardware.bolt.enable = true;
+  
   ## printing
   services.printing = {
     enable = true;
@@ -23,9 +31,6 @@
     openFirewall = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    canon-capt
-  ];
 
   services.avahi = {
   enable = true;
