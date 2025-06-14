@@ -34,7 +34,7 @@
         # networkConfig.DHCP = "ipv4";
         ## config static ip
         address = [
-          "10.120.17.129/25"
+          "192.168.0.2/24"
           # "fd42:23:42:b865::1/64"
           # "fe80::1/64"
         ];
@@ -68,44 +68,44 @@
   };
 
   ## dhcp kea
-  services.kea.dhcp4 = {
-    enable = true;
-    settings = {
-      interfaces-config = {
-        interfaces = [
-          "enp2s0f0"
-        ];
-      };
-      lease-database = {
-        name = "/var/lib/kea/dhcp4.leases";
-        persist = true;
-        type = "memfile";
-      };
-      rebind-timer = 2000;
-      renew-timer = 1000;
-      subnet4 = [
-        {
-          id = 1;
-          pools = [
-            {
-              pool = "10.120.17.130 - 10.120.17.255";
-            }
-          ];
-          subnet = "10.120.17.128/25";
-          reservations = [
-            {
-              hw-address = "DC:62:79:B1:FD:DD";
-              ip-address = "10.120.17.130";
-            }
-          ];
-        }
-      ];
-
-      valid-lifetime = 4000;
-      option-data = [{
-        name = "routers";
-        data = "10.120.17.129";
-      }];
-    };
-  };
+  # services.kea.dhcp4 = {
+  #   enable = true;
+  #   settings = {
+  #     interfaces-config = {
+  #       interfaces = [
+  #         "enp2s0f0"
+  #       ];
+  #     };
+  #     lease-database = {
+  #       name = "/var/lib/kea/dhcp4.leases";
+  #       persist = true;
+  #       type = "memfile";
+  #     };
+  #     rebind-timer = 2000;
+  #     renew-timer = 1000;
+  #     subnet4 = [
+  #       {
+  #         id = 1;
+  #         pools = [
+  #           {
+  #             pool = "10.120.17.130 - 10.120.17.255";
+  #           }
+  #         ];
+  #         subnet = "10.120.17.128/25";
+  #         # reservations = [
+  #         #   {
+  #         #     hw-address = "DC:62:79:B1:FD:DD";
+  #         #     ip-address = "10.120.17.130";
+  #         #   }
+  #         # ];
+  #       }
+  #     ];
+  #
+  #     valid-lifetime = 4000;
+  #     option-data = [{
+  #       name = "routers";
+  #       data = "10.120.17.129";
+  #     }];
+  #   };
+  # };
 }
