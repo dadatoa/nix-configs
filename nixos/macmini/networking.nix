@@ -98,8 +98,7 @@
               ip-address = "10.120.17.130";
             }
           ];
-
-        };
+        }
       ];
 
       valid-lifetime = 4000;
