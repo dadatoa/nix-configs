@@ -6,6 +6,7 @@
     ../common-modules/configuration.nix
     ../common-modules/users.nix
     ./networking.nix
+    ./dhcp.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
@@ -19,7 +20,7 @@
 
   ## Thunderbolt support
   services.hardware.bolt.enable = true;
-  
+
   ## printing
   services.printing = {
     enable = true;
@@ -33,12 +34,12 @@
 
 
   services.avahi = {
-  enable = true;
-  nssmdns4 = true;
-  openFirewall = true;
-  publish = {
     enable = true;
-    userServices = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
   };
-};
 }
