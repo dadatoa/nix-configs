@@ -10,6 +10,7 @@
     ../common-modules/virtualisation.nix
     ./networking.nix
     ./dhcp.nix
+    ./dns.nix
     /etc/nixos/hardware-configuration.nix
   ];
   ## enable ip forwarding
