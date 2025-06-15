@@ -4,9 +4,16 @@
 }: {
 
   networking.hostName = "macmini";
-
-  networking.firewall.enable = false;
   networking.interfaces.enp2s0f0.wakeOnLan.enable = true;
+
+  networking.firewall.enable = true;
+  networking.firewall.extraCommands = ''
+    # Set up SNAT on packets going from downstream to the wider internet
+    iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
+
+    # Accept all connections from downstream. May not be necessary
+    iptables -A INPUT -i enp2s0f0 -j ACCEPT  
+  '';
 
   ## manage network with systemd
   networking.useNetworkd = true;
