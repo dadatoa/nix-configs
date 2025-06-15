@@ -6,7 +6,7 @@
       interfaces-config = {
         interfaces = [
           "enp2s0f0/10.120.17.254"
-          "vlan100@enp2s0f0/10.120.17.65"
+          "vlan100/10.120.17.65"
         ];
       };
       lease-database = {
@@ -21,7 +21,7 @@
           id = 1;
           pools = [{ pool = "10.120.17.241 - 10.120.17.253"; }];
           subnet = "10.120.17.240/28";
-          interfaces = "enp2s0f0";
+          interface = "enp2s0f0";
           # reservations = [
           #   {
           #     hw-address = "DC:62:79:B1:FD:DD";
@@ -44,7 +44,7 @@
           id = 2;
           pools = [{ pool = "10.120.17.66 - 10.120.17.126"; }];
           subnet = "10.120.17.64/26";
-          interfaces = "vlan100@enp2s0f0";
+          interface = "vlan100";
           option-data = [
             {
               name = "routers";
