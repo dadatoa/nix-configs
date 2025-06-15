@@ -39,11 +39,12 @@
       ## add virtual interfaces for vlan
       "50-vlan100" = {
         matchConfig.Name = "vlan100";
-        address = [
-          "10.120.17.250/26"
-          # "fd42:23:42:b865::1/64"
-          # "fe80::1/64"
-        ];
+        networkConfig.DHCP = "ipv4";
+        # address = [
+        #   "10.120.17.250/26"
+        #   # "fd42:23:42:b865::1/64"
+        #   # "fe80::1/64"
+        # ];
       };
     };
   };
