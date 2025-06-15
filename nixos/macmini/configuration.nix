@@ -9,6 +9,8 @@
     ./dhcp.nix
     /etc/nixos/hardware-configuration.nix
   ];
+  ## enable ip forwarding
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   environment.systemPackages = with pkgs; [
     thunderbolt
