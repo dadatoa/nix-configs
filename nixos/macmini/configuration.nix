@@ -7,6 +7,7 @@
   imports = [
     ../common-modules/configuration.nix
     ../common-modules/users.nix
+    ../common-modules/virtualisation.nix
     ./networking.nix
     ./dhcp.nix
     /etc/nixos/hardware-configuration.nix
