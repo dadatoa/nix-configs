@@ -6,7 +6,7 @@
       interfaces-config = {
         interfaces = [
           "enp2s0f0/10.120.17.254"
-          "enp2s0f0.100/10.120.17.65"
+          "vlan100@enp2s0f0/10.120.17.65"
         ];
       };
       lease-database = {
