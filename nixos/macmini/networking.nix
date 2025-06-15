@@ -34,7 +34,7 @@
         # networkConfig.DHCP = "ipv4";
         ## config static ip
         address = [
-          "10.120.17.254/28"
+          "10.120.17.241/28"
           # "fd42:23:42:b865::1/64"
           # "fe80::1/64"
         ];
