@@ -5,7 +5,8 @@
     settings = {
       interfaces-config = {
         interfaces = [
-          "enp2s0f0"
+          "enp2s0f0/10.120.17.254"
+          "enp2s0f0.100/10.120.17.65"
         ];
       };
       lease-database = {
@@ -18,11 +19,7 @@
       subnet4 = [
         {
           id = 1;
-          pools = [
-            {
-              pool = "10.120.17.241 - 10.120.17.253";
-            }
-          ];
+          pools = [{ pool = "10.120.17.241 - 10.120.17.253"; }];
           subnet = "10.120.17.240/28";
           # reservations = [
           #   {
@@ -39,6 +36,22 @@
             {
               name = "domain-name-servers";
               data = "10.120.17.254";
+            }
+          ];
+        }
+        {
+          id = 2;
+          pools = [{ pool = "10.120.17.66 - 10.120.17.126"; }];
+          subnet = "10.120.17.64/26";
+
+          option-data = [
+            {
+              name = "routers";
+              data = "10.120.17.65";
+            }
+            {
+              name = "domain-name-servers";
+              data = "10.120.17.65";
             }
           ];
         }
