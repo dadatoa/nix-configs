@@ -1,7 +1,9 @@
-{ config
-, pkgs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ../common-modules/configuration.nix
     ../common-modules/users.nix
@@ -18,7 +20,10 @@
   ];
 
   ## boot fail on mac mini without these
-  boot.kernelParams = [ "vga=0x317" "nomodeset" ];
+  boot.kernelParams = [
+    "vga=0x317"
+    "nomodeset"
+  ];
 
   ## Thunderbolt support
   services.hardware.bolt.enable = true;
@@ -34,14 +39,13 @@
     openFirewall = true;
   };
 
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns4 = true;
+  #   openFirewall = true;
+  #   publish = {
+  #     enable = true;
+  #     userServices = true;
+  #   };
+  # };
 }

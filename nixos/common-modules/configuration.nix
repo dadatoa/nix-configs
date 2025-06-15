@@ -1,7 +1,9 @@
-{ pkgs
-, inputs
-, ...
-}: {
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     # ./hardware-configuration.nix
@@ -45,7 +47,10 @@
   };
 
   # Enable experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true; # defined in flake
@@ -104,24 +109,25 @@
       };
       enable = true;
       openFirewall = true;
+      nssmdns4 = true;
     };
 
-    udisks2 = {
-      enable = true;
-      mountOnMedia = true;
-      settings = {
-        "ata-WDC_WD40PURX-64AKYY0_WD-WX92DA1J6L8Z" = {
-          ATA = {
-            StandbyTimeout = "240";
-          };
-        };
-        "ata-TOSHIBA_DT01ACA050_X8LDNTAKS" = {
-          ATA = {
-            StandbyTimeout = "240";
-          };
-        };
-      };
-    };
+    # udisks2 = {
+    #   enable = true;
+    #   mountOnMedia = true;
+    #   settings = {
+    #     "ata-WDC_WD40PURX-64AKYY0_WD-WX92DA1J6L8Z" = {
+    #       ATA = {
+    #         StandbyTimeout = "240";
+    #       };
+    #     };
+    #     "ata-TOSHIBA_DT01ACA050_X8LDNTAKS" = {
+    #       ATA = {
+    #         StandbyTimeout = "240";
+    #       };
+    #     };
+    #   };
+    # };
   };
 
   system.stateVersion = "24.11";
