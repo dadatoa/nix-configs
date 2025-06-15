@@ -16,4 +16,7 @@
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;
   services.samba.openFirewall = true;
+
+  ## enable docker
+  virtualisation.docker.enable = true;
 }

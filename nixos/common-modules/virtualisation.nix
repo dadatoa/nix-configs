@@ -7,8 +7,5 @@
       # dockerCompat = true; # conflict with docker
       defaultNetwork.settings.dns_enabled = true;
     };
-    docker = {
-      enable = true;
-    };
   };
 }
