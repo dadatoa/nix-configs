@@ -25,6 +25,9 @@
       8080
       8443
     ];
+    allowedUDPPorts = [
+      53
+    ];
   };
   ## manage network with systemd
   networking.useNetworkd = true;
