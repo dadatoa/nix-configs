@@ -30,24 +30,4 @@
   ## Thunderbolt support
   services.hardware.bolt.enable = true;
 
-  ## printing
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [ canon-capt ];
-    allowFrom = [ "all" ];
-    listenAddresses = [ "*:631" ];
-    browsing = true;
-    defaultShared = true;
-    openFirewall = true;
-  };
-
-  # services.avahi = {
-  #   enable = true;
-  #   nssmdns4 = true;
-  #   openFirewall = true;
-  #   publish = {
-  #     enable = true;
-  #     userServices = true;
-  #   };
-  # };
 }
