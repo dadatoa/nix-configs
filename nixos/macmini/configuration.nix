@@ -9,7 +9,7 @@
     ../common-modules/dns.nix
     ../common-modules/users.nix
     ../common-modules/virtualisation.nix
-    ../common-modules/dhcp-kea-global.ni
+    ../common-modules/dhcp-kea-global.nix
     ./dhcp-kea-local.nix
     ./networking.nix
     /etc/nixos/hardware-configuration.nix
