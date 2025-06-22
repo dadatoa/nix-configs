@@ -20,19 +20,9 @@
       subnet4 = [
         {
           id = 1;
-          pools = [ { pool = "10.120.17.242 - 10.120.17.254"; } ];
+          pools = [ { pool = "10.120.17.242 - 10.120.17.247"; } ];
           subnet = "10.120.17.240/28";
           interface = "enp2s0f0";
-          reservations = [
-            {
-              hw-address = "DC:62:79:B1:FD:DD";
-              ip-address = "10.120.17.254";
-            }
-            {
-              hw-address = "C8:D9:D2:0B:D8:52";
-              ip-address = "10.120.17.242";
-            }
-          ];
 
           option-data = [
             {
@@ -47,7 +37,7 @@
         }
         {
           id = 2;
-          pools = [ { pool = "10.120.17.66 - 10.120.17.126"; } ];
+          pools = [ { pool = "10.120.17.66 - 10.120.17.95"; } ];
           subnet = "10.120.17.64/26";
           interface = "vlan100";
           option-data = [
