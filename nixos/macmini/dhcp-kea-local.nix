@@ -14,6 +14,17 @@
         pools = [ { pool = "10.120.17.242 - 10.120.17.247"; } ];
         subnet = "10.120.17.240/28";
         interface = "enp2s0f0";
+        reservations = [
+          {
+            # easy smart managed router
+            hw-address = "DC:62:79:B1:FD:DD";
+            ip-address = "10.120.17.254";
+          }
+          # {
+          #   hw-address = "C8:D9:D2:0B:D8:52";
+          #   ip-address = "10.120.17.242";
+          # }
+        ];
 
         option-data = [
           {
