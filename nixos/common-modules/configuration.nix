@@ -56,7 +56,7 @@
   nixpkgs.config.allowUnfree = true; # defined in flake
 
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${system}.default # # nixvim -> custom nix neovim configuration
     ansible
     bat
     btrfs-progs
@@ -68,8 +68,8 @@
     git
     glab
     hdparm
+    kea # adding package allow access to kea libs in /run/current-system
     lazygit
-    # neovim
     nmap
     overmind # process manager
     python3Minimal
@@ -78,6 +78,7 @@
     starship
     tailscale
     tmux
+    wezterm # allow wezterm connect from my other machines with wezterm
     wget
     zoxide
   ];
