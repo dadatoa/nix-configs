@@ -83,9 +83,6 @@
     interfaces = [
       "wlp3s0"
     ];
-    # networks."Natcha5G" = {
-    #   pskRaw = "ext:natcha17_psk";
-    # };
+    userControlled.enable = true;
   };
-
 }
