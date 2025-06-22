@@ -6,11 +6,12 @@
 {
   imports = [
     ../common-modules/configuration.nix
+    ../common-modules/dns.nix
     ../common-modules/users.nix
     ../common-modules/virtualisation.nix
+    ../common-modules/dhcp-kea-global.ni
+    ./dhcp-kea-local.nix
     ./networking.nix
-    ./dhcp.nix
-    ./dns.nix
     /etc/nixos/hardware-configuration.nix
   ];
   ## enable ip forwarding
