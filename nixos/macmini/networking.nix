@@ -78,7 +78,7 @@
 
   ## wireless
   networking.wireless = {
-    enable = true;
+    enable = false;
     # secretsFile = "/run/secrets/wireless.conf";
     interfaces = [
       "wlp3s0"

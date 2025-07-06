@@ -12,6 +12,7 @@
     ../common-modules/dhcp-kea-global.nix
     ./dhcp-kea-local.nix
     ./networking.nix
+    ./services.nix
     /etc/nixos/hardware-configuration.nix
   ];
   ## enable ip forwarding
