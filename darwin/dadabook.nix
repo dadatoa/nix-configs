@@ -23,9 +23,9 @@
 
   programs.nixvim = {
     enable = true;
-    #   imports = [
-    #     ./nixvim.nix
-    #   ];
+      imports = [
+        ../nixvim
+      ];
     #   # nixpkgs.useGlobalPackages = true;
   };
 
