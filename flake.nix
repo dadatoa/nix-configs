@@ -20,7 +20,7 @@
     };
 
     nixvim = {
-      url = "github:dadatoa/nixvim";
+      url = "github:nix-community/nixvim";
       # url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -31,13 +31,15 @@
   };
 
   outputs =
-    inputs @ { self
-    , nixpkgs
-    , disko
-    , nix-darwin
-    , nixvim
-    , ...
-    }: {
+    inputs@{
+      self,
+      nixpkgs,
+      disko,
+      nix-darwin,
+      nixvim,
+      ...
+    }:
+    {
       nixosConfigurations = {
         aarch64virtIso = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
@@ -87,7 +89,7 @@
           system = "aarch64-darwin";
           specialArgs = { inherit inputs; };
           modules = [
-            # nixvim.nixDarwinModules.nixvim
+            nixvim.nixDarwinModules.nixvim
             # ./microvm.nixosModules.host
             ./darwin/dadabook.nix
           ];

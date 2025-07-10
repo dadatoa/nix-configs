@@ -1,9 +1,10 @@
-{ pkgs
-, inputs
-, ...
-}: {
-  # services.nix-daemon.enabled = true;
-  nix.settings.experimental-features = "nix-command flakes";
+{ pkgs, libs, inputs, ... }: {
+
+  imports = [
+    # nixvim.nixDarwinModules.nixvim
+  ];
+    # services.nix-daemon.enabled = true;
+    nix.settings.experimental-features = "nix-command flakes";
   # enable systemd
   # used for backwards compatibility
   system.stateVersion = 5;
@@ -20,16 +21,16 @@
   programs.zsh.enable = true;
 
 
-  # programs.nixvim = {
-  #   enable = true;
-  #   imports = [
-  #     ./nixvim.nix
-  #   ];
-  #   # nixpkgs.useGlobalPackages = true;
-  # };
+  programs.nixvim = {
+    enable = true;
+    #   imports = [
+    #     ./nixvim.nix
+    #   ];
+    #   # nixpkgs.useGlobalPackages = true;
+  };
 
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
+    # inputs.nixvim.packages.${system}.default
     ansible
     bat
     docker
