@@ -1,7 +1,7 @@
 { pkgs, libs, inputs, ... }: {
 
   imports = [
-    nixvim.nixDarwinModules.nixvim
+    # nixvim.nixDarwinModules.nixvim
   ];
     # services.nix-daemon.enabled = true;
     nix.settings.experimental-features = "nix-command flakes";
