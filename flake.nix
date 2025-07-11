@@ -20,8 +20,8 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
       # url = "github:nix-community/nixvim";
+      url = "github:dadatoa/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # microvm = {
