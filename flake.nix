@@ -89,8 +89,6 @@
           system = "aarch64-darwin";
           specialArgs = { inherit inputs; };
           modules = [
-            nixvim.nixDarwinModules.nixvim
-            # ./microvm.nixosModules.host
             ./darwin/dadabook.nix
           ];
         };

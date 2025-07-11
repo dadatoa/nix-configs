@@ -1,10 +1,7 @@
 { pkgs, libs, inputs, ... }: {
 
-  imports = [
-    # nixvim.nixDarwinModules.nixvim
-  ];
-    # services.nix-daemon.enabled = true;
-    nix.settings.experimental-features = "nix-command flakes";
+  # services.nix-daemon.enabled = true;
+  nix.settings.experimental-features = "nix-command flakes";
   # enable systemd
   # used for backwards compatibility
   system.stateVersion = 5;
