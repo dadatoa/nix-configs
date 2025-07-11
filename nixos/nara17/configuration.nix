@@ -9,6 +9,7 @@
     ../common-modules/virtualisation.nix
     ./storage.nix
     ./networking.nix
+    ./services.nix
     /etc/nixos/hardware-configuration.nix
   ];
 

@@ -47,8 +47,8 @@
         networkConfig.DHCP = "ipv4";
         # address = [
         #   "10.120.17.96/26"
-          #   # "fd42:23:42:b865::1/64"
-          #   # "fe80::1/64"
+        #   # "fd42:23:42:b865::1/64"
+        #   # "fe80::1/64"
         # ];
       };
     };
@@ -56,7 +56,7 @@
 
   ## wireless
   networking.wireless = {
-    enable = true;
+    enable = false;
     # secretsFile = "/run/secrets/wireless.conf";
     interfaces = [
       "wlp0s20f0u1"

@@ -1,8 +1,8 @@
-{ lib, ... }:
+{ pkgs, ... }:
 {
   systemd.services.wifi = {
     enable = true;
-    description = "My service is responsible for ...";
+    description = "custom wpa_supplicant";
     after = [ "multi-user.target" ];
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.wpa_supplicant ];
