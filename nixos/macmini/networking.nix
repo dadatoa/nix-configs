@@ -41,9 +41,7 @@
           Name = "vlan100";
           Description = "LAN Access";
         };
-        vlanConfig = {
-          Id = 100;
-        };
+        vlanConfig.Id = 100;
       };
     };
     ## network interfaces
