@@ -1,3 +1,5 @@
+### mac mini configuration
+
 {
   config,
   pkgs,
