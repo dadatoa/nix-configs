@@ -8,7 +8,7 @@
   networking.hostName = "nara17";
 
   networking.firewall.enable = false;
-  networking.interfaces.enp2s0.wakeOnLan.enable = true;
+  # networking.interfaces.enp2s0.wakeOnLan.enable = true;
 
   ## manage network with systemd
   networking.useNetworkd = true;
