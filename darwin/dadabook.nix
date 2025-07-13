@@ -1,4 +1,10 @@
-{ pkgs, libs, inputs, ... }: {
+{
+  pkgs,
+  libs,
+  inputs,
+  ...
+}:
+{
 
   # services.nix-daemon.enabled = true;
   nix.settings.experimental-features = "nix-command flakes";
@@ -16,15 +22,6 @@
   };
 
   programs.zsh.enable = true;
-
-
-  # programs.nixvim = {
-  #   enable = true;
-  #     imports = [
-  #       ../nixvim
-  #     ];
-  #     # nixpkgs.useGlobalPackages = true;
-  # };
 
   environment.systemPackages = with pkgs; [
     inputs.nixvim.packages.${system}.default
@@ -55,4 +52,16 @@
     zoxide
     zsh
   ];
+
+  ## enable homebrew package manager
+  ## does not install homebrew, have to install with standard procedure on mac os
+  homebrew = {
+    enable = true;
+    casks = [
+      "karabiner-elements"
+      "ollama-app"
+      "orbstack"
+    ];
+    brews = [ ];
+  };
 }
