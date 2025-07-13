@@ -12,6 +12,8 @@
   # used for backwards compatibility
   system.stateVersion = 5;
 
+  system.primaryUser = "dadatoa";
+
   # fingerprint for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
   nixpkgs = {
