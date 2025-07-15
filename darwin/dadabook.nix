@@ -60,7 +60,7 @@
     enable = true;
     casks = [
       "karabiner-elements"
-      "leaderkey"
+      "leader-key"
       "ollama-app"
       "orbstack"
     ];
