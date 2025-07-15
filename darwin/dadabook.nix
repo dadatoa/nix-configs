@@ -1,6 +1,5 @@
 {
   pkgs,
-  libs,
   inputs,
   ...
 }:
@@ -61,6 +60,7 @@
     enable = true;
     casks = [
       "karabiner-elements"
+      "leaderkey"
       "ollama-app"
       "orbstack"
     ];
