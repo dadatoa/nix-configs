@@ -49,7 +49,7 @@
     stow
     telescope
     tmux
-    wezterm
+    # wezterm # via homebrew
     zoxide
     zsh
   ];
@@ -63,6 +63,7 @@
       "leader-key"
       "ollama-app"
       "orbstack"
+      "wezterm"
     ];
     brews = [ ];
   };
