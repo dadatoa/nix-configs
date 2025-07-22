@@ -1,7 +1,8 @@
 {
   description = "nixos configurations";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixvim = {
       # url = "github:nix-community/nixvim";
@@ -12,7 +13,7 @@
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
 
       forAllSystems =
@@ -21,28 +22,41 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ] (system: function nixpkgs.legacyPackages.${system});
+        ]
+          (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
       nixosConfigurations = {
-        orbnix-1 = nixpkgs.lib.nixosSystem {
+        ## virtual machines
+        orbnix-1 = nixpkgs-unstable.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos/orbnix-1
           ];
         };
-      };
-      devShells = forAllSystems (pkgs: {
-        default = pkgs.mkShell {
-          packages = [
-            pkgs.git
-            pkgs.glab
-            pkgs.gh
-          ];
-        };
-      });
-    };
 
-}
+        ## physical machines
+        nrt17-1 = nixpkgs.lib.nixosSystem
+          {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./nixos/nrt17-1
+            ];
+          }
+          };
+
+        devShells = forAllSystems (pkgs: {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.git
+              pkgs.glab
+              pkgs.gh
+            ];
+          };
+        });
+      };
+
+    }
