@@ -38,7 +38,6 @@
 
   environment.systemPackages = with pkgs; [
     inputs.nixvim.packages.${system}.default # # nixvim -> custom nix neovim configuration
-    ansible
     bat
     btrfs-progs
     curl
@@ -49,12 +48,9 @@
     git
     glab
     hdparm
-    kea # adding package allow access to kea libs in /run/current-system
     lazygit
     nmap
-    overmind # process manager
     python3Minimal
-    pv # progress bar when copy file
     sesh
     starship
     tailscale
@@ -67,18 +63,8 @@
   # start ssh-agent
   programs.ssh.startAgent = true;
 
+  # Avahi for auto discover based on hostname
   services = {
-    # Enable ssh
-    openssh = {
-      enable = true;
-      openFirewall = true;
-    };
-
-    # Enable Tailscale
-    tailscale.enable = true;
-    tailscale.openFirewall = true;
-
-    # Avahi for auto discover based on hostname
     avahi = {
       publish = {
         enable = true;
