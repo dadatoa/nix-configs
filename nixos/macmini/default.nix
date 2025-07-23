@@ -1,10 +1,10 @@
 ### mac mini configuration
 
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./configuration.nix
-    ./hardware-configuration.nix
+    ./hw-conf.nix
 
     ../common/default.nix
     # ../common-modules/dns.nix
