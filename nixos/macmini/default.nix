@@ -11,7 +11,7 @@
     ../common/users.nix
     # ../common-modules/virtualisation.nix
     # ../common-modules/dhcp-kea-global.nix
-    ./dhcp-kea-local.nix
+    ./dhcp-kea.nix
     ./networking.nix
     ./services.nix
   ];
