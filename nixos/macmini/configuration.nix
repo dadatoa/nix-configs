@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 {
-  boot.initrd.kernelModules = [ "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
   ## enable ip forwarding
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   ## boot fail on mac mini without these
