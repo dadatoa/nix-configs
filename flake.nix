@@ -9,7 +9,7 @@
       url = "github:dadatoa/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +27,8 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ] (system: function nixpkgs.legacyPackages.${system});
+        ]
+          (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
@@ -46,6 +47,8 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            inputs.disko.nixosModules.default
+            (import ./nixos/nrt17-1/disko.nix { device = "/dev/nvme0n1"; })
             ./nixos/nrt17-1
           ];
         };

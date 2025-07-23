@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+### nrtv17-1
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -9,6 +10,7 @@
     ../common/users.nix
 
     ./networking.nix
+    ./services.nix
   ];
 
 }
