@@ -7,7 +7,7 @@
     ./hw-conf.nix
 
     ../common/default.nix
-    # ../common-modules/dns.nix
+    ../common/dns.nix
     ../common/users.nix
     # ../common-modules/virtualisation.nix
     # ../common-modules/dhcp-kea-global.nix
