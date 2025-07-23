@@ -1,5 +1,5 @@
 {
-  description = "nixos configurations";
+  description = "my nix configurations";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -15,10 +15,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
   };
 
   outputs =
-    { nixpkgs, nixpkgs-unstable, ... }@inputs:
+    {
+      nixpkgs,
+      nixpkgs-unstable,
+      nix-darwin,
+      ...
+    }@inputs:
     let
 
       forAllSystems =
@@ -27,8 +37,7 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ]
-          (system: function nixpkgs.legacyPackages.${system});
+        ] (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
@@ -65,6 +74,18 @@
 
       };
 
+      ## darwin
+      darwinConfigurations = {
+        dadabook = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./darwin/dadabook.nix
+          ];
+        };
+      };
+
+      ## dev shells
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           packages = [
