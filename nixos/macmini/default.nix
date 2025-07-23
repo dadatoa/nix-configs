@@ -1,4 +1,4 @@
-### mac mini configuration
+### mac mini
 
 { ... }:
 {
