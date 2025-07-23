@@ -22,8 +22,7 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ]
-          (system: function nixpkgs.legacyPackages.${system});
+        ] (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
@@ -38,25 +37,33 @@
         };
 
         ## physical machines
-        nrt17-1 = nixpkgs.lib.nixosSystem
-          {
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
-            modules = [
-              ./nixos/nrt17-1
-            ];
-          }
-          };
+        nrt17-1 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./nixos/nrt17-1
+          ];
+        };
 
-        devShells = forAllSystems (pkgs: {
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.git
-              pkgs.glab
-              pkgs.gh
-            ];
-          };
-        });
+        macmini = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./nixos/macmini
+          ];
+        };
+
       };
 
-    }
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.git
+            pkgs.glab
+            pkgs.gh
+          ];
+        };
+      });
+    };
+
+}

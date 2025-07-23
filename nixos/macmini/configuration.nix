@@ -1,37 +1,44 @@
-### mac mini configuration
-
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-{
-  imports = [
-    ../common-modules/configuration.nix
-    ../common-modules/dns.nix
-    ../common-modules/users.nix
-    ../common-modules/virtualisation.nix
-    ../common-modules/dhcp-kea-global.nix
-    ./dhcp-kea-local.nix
-    ./networking.nix
-    ./services.nix
-    /etc/nixos/hardware-configuration.nix
-  ];
+  boot.initrd.kernelModules = [ "wl" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
   ## enable ip forwarding
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-
-  environment.systemPackages = with pkgs; [
-    thunderbolt
-    canon-capt
-  ];
-
   ## boot fail on mac mini without these
   boot.kernelParams = [
     "vga=0x317"
     "nomodeset"
   ];
 
-  ## Thunderbolt support
-  services.hardware.bolt.enable = true;
+  environment.systemPackages = with pkgs; [
+    thunderbolt
+    canon-capt
+  ];
+
+  services = {
+    # Enable ssh
+    openssh = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    # Enable Tailscale
+    tailscale.enable = true;
+    tailscale.openFirewall = true;
+
+    # Avahi for auto discover based on hostname
+    avahi = {
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+      enable = true;
+      openFirewall = true;
+      nssmdns4 = true;
+    };
+
+    ## Thunderbolt support
+    hardware.bolt.enable = true;
+  };
 
 }

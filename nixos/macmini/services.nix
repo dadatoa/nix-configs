@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   systemd.services.wifi = {
     enable = true;
