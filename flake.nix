@@ -9,6 +9,11 @@
       url = "github:dadatoa/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
@@ -49,6 +54,8 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            inputs.disko.nixosModules.default
+            (import ./nixos/macmini/disko.nix { device = "/dev/sdb"; })
             ./nixos/macmini
           ];
         };
