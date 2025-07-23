@@ -8,6 +8,12 @@
     "nomodeset"
   ];
 
+  ## Allow insecure packages for wifi broadcom on mac mini
+  nixpkgs.config.allowInsecurePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "broadcom-sta" # aka “wl”
+  ];
+
   environment.systemPackages = with pkgs; [
     thunderbolt
     canon-capt
