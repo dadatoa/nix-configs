@@ -2,7 +2,7 @@
 { ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hw-configuration.nix
     ./configurtion.nix
 
     ../common/default.nix
