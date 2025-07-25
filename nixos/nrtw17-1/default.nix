@@ -11,6 +11,7 @@
 
     ./networking.nix
     ./services.nix
+    ./storage.nix
   ];
 
 }
