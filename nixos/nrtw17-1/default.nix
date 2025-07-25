@@ -9,9 +9,8 @@
     ../common/shares.nix
     ../common/users.nix
 
-    ./networking.nix
-    ./services.nix
-    ./storage.nix
+    ./networking
+    ./storage
   ];
 
 }

@@ -1,14 +1,5 @@
 { ... }:
 {
-
-  networking.hostName = "nara17";
-
-  networking.firewall.enable = false;
-  # networking.interfaces."enp2s0".wakeOnLan.enable = true; # issue when rebuild?
-
-  ## manage network with systemd
-  networking.useNetworkd = true;
-  systemd.network.enable = true;
   systemd.network = {
     ## declare vlan
     netdevs = {
@@ -50,13 +41,4 @@
     };
   };
 
-  ## wireless
-  networking.wireless = {
-    enable = false;
-    # secretsFile = "/run/secrets/wireless.conf";
-    interfaces = [
-      "wlp0s20f0u1"
-    ];
-    userControlled.enable = true;
-  };
 }

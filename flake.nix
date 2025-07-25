@@ -23,11 +23,10 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixpkgs-unstable,
-      nix-darwin,
-      ...
+    { nixpkgs
+    , nixpkgs-unstable
+    , nix-darwin
+    , ...
     }@inputs:
     let
 
@@ -37,7 +36,8 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ] (system: function nixpkgs.legacyPackages.${system});
+        ]
+          (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
@@ -57,7 +57,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             inputs.disko.nixosModules.default
-            (import ./nixos/nrtw17-1/disko.nix { device = "/dev/nvme0n1"; })
+            (import ./nixos/nrtw17-1/storage/disko.nix { device = "/dev/nvme0n1"; })
             ./nixos/nrtw17-1
           ];
         };

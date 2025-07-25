@@ -2,6 +2,18 @@
 
 { pkgs, ... }:
 {
+
+  networking.wireless = {
+    enable = false;
+    # secretsFile = "/run/secrets/wireless.conf";
+    interfaces = [
+      "wlp0s20f0u1"
+    ];
+    userControlled.enable = true;
+  };
+
+
+  ## custom service to start wifi connection
   systemd.services.wifi = {
     enable = true;
     description = "custom wpa_supplicant";
