@@ -52,13 +52,13 @@
         };
 
         ## physical machines
-        nrt17-1 = nixpkgs.lib.nixosSystem {
+        nrtw17-1 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
             inputs.disko.nixosModules.default
-            (import ./nixos/nrt17-1/disko.nix { device = "/dev/nvme0n1"; })
-            ./nixos/nrt17-1
+            (import ./nixos/nrtw17-1/disko.nix { device = "/dev/nvme0n1"; })
+            ./nixos/nrtw17-1
           ];
         };
 
