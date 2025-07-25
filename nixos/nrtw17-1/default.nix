@@ -3,7 +3,7 @@
 {
   imports = [
     ./hw-configuration.nix
-    ./configurtion.nix
+    ./configuration.nix
 
     ../common/default.nix
     ../common/shares.nix
