@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }:
 {
+  ## support for nfs mount
+  boot.supportedFilesystems = [ "nfs" ];
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -42,12 +44,13 @@
     curl
     fzf
     gh
-    git 
+    git
     glab
     lazygit
     sesh
     starship
     tmux
+    nfs-utils
     wezterm
     wget
     zoxide
