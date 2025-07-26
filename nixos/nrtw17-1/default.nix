@@ -9,7 +9,7 @@
     ../common/shares.nix
     ../common/users.nix
 
-    # ./nas
+    ./nas
     ./networking
     ./storage
   ];
