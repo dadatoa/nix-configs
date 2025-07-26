@@ -23,10 +23,11 @@
   };
 
   outputs =
-    { nixpkgs
-    , nixpkgs-unstable
-    , nix-darwin
-    , ...
+    {
+      nixpkgs,
+      nixpkgs-unstable,
+      nix-darwin,
+      ...
     }@inputs:
     let
 
@@ -36,8 +37,7 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-        ]
-          (system: function nixpkgs.legacyPackages.${system});
+        ] (system: function nixpkgs.legacyPackages.${system});
 
     in
     {
@@ -89,9 +89,12 @@
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           packages = [
-            pkgs.git
             pkgs.glab
             pkgs.gh
+            pkgs.fish
+            pkgs.zoxide
+            pkgs.fzf
+            pkgs.lazygit
           ];
         };
       });

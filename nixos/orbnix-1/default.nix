@@ -15,6 +15,7 @@
       ./orbstack.nix
 
       ./custom.nix
+      ../common/virtualisation/podman.nix
     ];
 
   users.users.nixos = {
