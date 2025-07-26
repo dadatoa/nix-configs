@@ -15,6 +15,7 @@
       ./orbstack.nix
 
       ./custom.nix
+      ./users.nix
       ../common/virtualisation/podman.nix
     ];
 
