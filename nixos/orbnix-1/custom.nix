@@ -37,12 +37,20 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     inputs.nixvim.packages.${system}.default
+    bat
+    blesh
     curl
+    fzf
     gh
     git 
     glab
+    lazygit
+    sesh
+    starship
+    tmux
     wezterm
     wget
+    zoxide
   ];
 
   services.tailscale.enable = true;
