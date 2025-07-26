@@ -25,7 +25,7 @@
     {
       device = "/dev/sda1";
       fsType = "btrfs";
-      options = [ "no-auto" "users" ];
+      # options = [ "no-auto" "users" ];
     };
 
   # fileSystems."/mnt/share/public/Downloads" =
