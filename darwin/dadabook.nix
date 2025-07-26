@@ -38,6 +38,7 @@
     git
     glab
     lazygit
+    lima
     nmap
     nodejs
     fastfetch
