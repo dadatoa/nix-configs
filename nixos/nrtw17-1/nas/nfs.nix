@@ -15,4 +15,12 @@
     device = "/mnt/datapool/share";
     options = [ "bind" ];
   };
+
+  ## nfs service
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /export/media 100.64.0.0/10(rw,fsid=0,no_subtree_check)
+    /export/appdata 100.64.0.0/10(rw,no_hide,insecure,no_subtree_check)
+    /export/share 100.64.0.0/10(rw,no_hide,insecure,no_subtree_check)
+  '';
 }
