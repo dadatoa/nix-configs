@@ -7,6 +7,8 @@
     description = "user for managing services";
     extraGroups = [
       "homelab"
+      "users"
+      "wheel"
     ];
   };
 }
