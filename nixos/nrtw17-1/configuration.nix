@@ -1,22 +1,12 @@
-{ config, lib, pkgs, ... }:
+## nrtv17-1 configuration
+
+{ pkgs, ... }:
 {
-  ## enable ip forwarding
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  ## boot fail on mac mini without these
-  boot.kernelParams = [
-    "vga=0x317"
-    "nomodeset"
-  ];
-
-  ## Allow insecure packages for wifi broadcom on mac mini
-  nixpkgs.config.allowInsecurePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "broadcom-sta" # aka “wl”
-  ];
-
   environment.systemPackages = with pkgs; [
-    thunderbolt
-    canon-capt
+    ansible
+    kea
+    overmind
+    pv
   ];
 
   services = {
@@ -30,22 +20,24 @@
     tailscale.enable = true;
     tailscale.openFirewall = true;
 
-    # Avahi for auto discover based on hostname
-    avahi = {
-      publish = {
-        enable = true;
-        userServices = true;
-      };
+    # samba
+    samba = {
       enable = true;
+      package = pkgs.samba4Full;
       openFirewall = true;
-      nssmdns4 = true;
     };
-
-    ## Thunderbolt support
-    hardware.bolt.enable = true;
   };
 
-  
+  # This option defines the first version of NixOS you have installed on this particular machine,
+  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+  #
+  # Most users should NEVER change this value after the initial install, for any reason,
+  # even if you've upgraded your system to a new NixOS release.
+  #
+  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+  # to actually do that.
+  #
   # This value being lower than the current NixOS release does NOT mean your system is
   # out of date, out of support, or vulnerable.
   #

@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../common-modules/configuration.nix
     ../common-modules/users.nix

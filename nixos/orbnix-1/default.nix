@@ -13,17 +13,13 @@
       ./incus.nix
       # Include the OrbStack-specific configuration.
       ./orbstack.nix
-      ../common-modules/base.nix
-      ../common-modules/users.nix
+
+      ./custom.nix
+      ./users.nix
+      ../common/virtualisation/podman.nix
     ];
 
-  # Enable experimental features
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  users.users.orb = {
+  users.users.nixos = {
     uid = 502;
     extraGroups = [ "wheel" "orbstack" ];
 
@@ -31,7 +27,7 @@
     isSystemUser = true;
     group = "users";
     createHome = true;
-    home = "/home/orb";
+    home = "/home/nixos";
     homeMode = "700";
     useDefaultShell = true;
   };
@@ -41,7 +37,7 @@
   # This being `true` leads to a few nasty bugs, change at your own risk!
   users.mutableUsers = false;
 
-  # time.timeZone = "Asia/Bangkok"; # configured in common modules/base.nix 
+  time.timeZone = "Asia/Bangkok";
 
   networking = {
     dhcpcd.enable = false;
@@ -156,5 +152,5 @@ Syif7P27trOX9CmJFQIhAI6Ha6S2RoifhZ7erozvsW4wtbtbpIlFKSdhdy0uAk8m
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
