@@ -31,14 +31,23 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      disko,
-      nix-darwin,
-      nixvim,
-      ...
-    }:
+    { nixpkgs
+    , nixpkgs-unstable
+    , nix-darwin
+    , ...
+    }@inputs:
+    let
+
+      forAllSystems =
+        function:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+          "aarch64-darwin"
+        ]
+          (system: function nixpkgs.legacyPackages.${system});
+
+    in
     {
       nixosConfigurations = {
         aarch64virtIso = nixpkgs.lib.nixosSystem {
@@ -93,5 +102,20 @@
           ];
         };
       };
+
+      ## dev shells
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.glab
+            pkgs.gh
+            pkgs.just
+            pkgs.fish
+            pkgs.zoxide
+            pkgs.fzf
+            pkgs.lazygit
+          ];
+        };
+      });
     };
 }
