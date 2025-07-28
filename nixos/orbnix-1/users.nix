@@ -1,5 +1,5 @@
 ## Orbnix additionnal users
-{ ... }:
+{ pkgs, ... }:
 {
   users.users.dadato = {
     isNormalUser = true;
@@ -10,5 +10,9 @@
       "users"
       "wheel"
     ];
+    packages = with pkgs; [
+      nushell
+    ];
+    shell = pkgs.nushell;
   };
 }

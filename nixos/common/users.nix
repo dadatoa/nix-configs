@@ -7,14 +7,14 @@
       uid = 1000;
       description = "individual user - services manager";
       extraGroups = [
-        "networkmanager"
-        "docker"
+        "wheel"
       ];
       # shell = pkgs.fish;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab"
       ];
-      packages = with pkgs; [ ];
+      # packages = with pkgs; [ ];
+      shell = pkgs.nushell;
     };
 
     users.nixos = {
@@ -24,12 +24,11 @@
       description = "admin system";
       extraGroups = [
         "wheel"
-        "networkmanager"
       ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8cVLhjGtC5ObYAMwXzp/QMag/wbuCJ3BHAns/Ei9DO lab"
       ];
-      packages = with pkgs; [ ];
+      # packages = with pkgs; [ ];
     };
 
     users.natcha = {
@@ -37,7 +36,7 @@
       uid = 1002;
       description = "individual user";
       # extraGroups = [ "docker" "networkmanager" ];
-      packages = with pkgs; [ ];
+      # packages = with pkgs; [ ];
     };
 
   };

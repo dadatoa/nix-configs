@@ -5,7 +5,8 @@
     ./hw-configuration.nix
     ./configuration.nix
 
-    ../common/default.nix
+    ../common/bm
+    ../common/configuration.nix
     ../common/shares.nix
     ../common/users.nix
 

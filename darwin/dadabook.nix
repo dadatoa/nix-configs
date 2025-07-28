@@ -22,27 +22,27 @@
     };
   };
 
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     inputs.nixvim.packages.${system}.default
-    ansible
+    # ansible
     bat
-    docker
+    # docker
     eza
     ext4fuse
     fish
     fzf
-    gh
+    # gh
     # ghostty  ## broken package
     git
-    glab
+    # glab
     lazygit
     lima
-    nmap
-    nodejs
-    fastfetch
-    overmind # process manager
+    # nmap
+    # nodejs
+    # fastfetch
+    # overmind # process manager
     rclone
     rsync
     sesh
@@ -52,7 +52,7 @@
     tmux
     # wezterm # via homebrew
     zoxide
-    zsh
+    # zsh
   ];
 
   ## enable homebrew package manager
@@ -60,10 +60,12 @@
   homebrew = {
     enable = true;
     casks = [
+      "ghostty"
       "karabiner-elements"
       "leader-key"
       "ollama-app"
       "orbstack"
+      "stats"
       "wezterm"
     ];
     brews = [ ];

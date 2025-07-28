@@ -1,7 +1,5 @@
 { pkgs, inputs, ... }:
 {
-  ## support for nfs mount
-  boot.supportedFilesystems = [ "nfs" ];
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -37,14 +35,33 @@
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
+    inputs.nixvim.packages.${system}.default # # nixvim -> custom nix neovim configuration
+    bat
     curl
+    fish
     fzf
+    gh
     git
+    glab
+    just
+    lazygit
     nfs-utils
+    nmap
+    python3Minimal
+    starship
+    stow
+    tmux
     wget
+    zoxide
   ];
 
+  # start ssh-agent
+  programs.ssh.startAgent = true;
+
+  # enable tailscale on very host
   services.tailscale.enable = true;
   services.tailscale.openFirewall = true;
+
 }
