@@ -14,6 +14,7 @@
     ./configuration.nix
 
     ## custom conf
+    ./nfs-client.nix
     ./users.nix
     ../common/configuration.nix
     ../common/virtualisation/podman.nix
