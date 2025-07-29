@@ -3,7 +3,8 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-    # configDir = "/data/appdata/jelly";
-    # dataDir = "/data/media";
-  };
-}
+    dataDir = "/data/appdata/jelly";
+    user = "datato";
+    group = "users";
+      };
+  }
