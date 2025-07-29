@@ -18,12 +18,13 @@
     ./users.nix
     ../common/configuration.nix
     ../common/virtualisation/podman.nix
-    ../common/homelab
+    # ../common/homelab
   ];
 
   ## custom configuration
   environment.systemPackages = with pkgs; [
     sesh
+    jellyfin
   ];
 
 }
