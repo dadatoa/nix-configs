@@ -18,6 +18,7 @@
     ./users.nix
     ../common/configuration.nix
     ../common/virtualisation/podman.nix
+    ../common/homelab
   ];
 
   ## custom configuration
