@@ -4,7 +4,7 @@
     enable = true;
     openFirewall = true;
     dataDir = "/data/appdata/jelly";
-    # user = "datato";
-    # group = "users";
+    user = "datato";
+    group = "users";
   };
 }
