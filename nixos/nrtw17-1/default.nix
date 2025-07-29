@@ -9,7 +9,7 @@
     ../common/configuration.nix
     ../common/shares.nix
     ../common/users.nix
-
+    ../common/homelab
     ./nas
     ./networking
     ./storage
