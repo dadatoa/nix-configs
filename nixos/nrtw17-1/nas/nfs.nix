@@ -19,6 +19,6 @@
   ## nfs service
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /export 100.64.0.0/10(rw,fsid=0) 10.120.17.0/24(rw,fsid=0)
+    /export 100.64.0.0/10(rw,all_squash,anonuid=1000,anongid=100) 10.120.17.0/24(rw,all_squash,anonuid=1000,anongid=100)
   '';
 }
