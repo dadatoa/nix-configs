@@ -2,6 +2,9 @@
 
 { pkgs, ... }:
 {
+  ## enable systemd boot
+  boot.loader.systemd-boot.enable = true;
+
   environment.systemPackages = with pkgs; [
     ansible
     kea
