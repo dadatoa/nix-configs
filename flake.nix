@@ -92,6 +92,7 @@
           packages = [
             pkgs.glab
             pkgs.gh
+            pkgs.git-graph
             pkgs.just
             pkgs.fish
             pkgs.zoxide
