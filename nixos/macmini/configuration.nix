@@ -1,5 +1,8 @@
+## Mac mini base config
 { config, lib, pkgs, ... }:
 {
+  ## enable systemd boot
+  boot.loader.systemd-boot.enable = true;
   ## enable ip forwarding
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   ## boot fail on mac mini without these
@@ -12,7 +15,7 @@
   nixpkgs.config.allowInsecurePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "broadcom-sta" # aka “wl”
-  ];
+    ];
 
   environment.systemPackages = with pkgs; [
     thunderbolt
@@ -45,7 +48,7 @@
     hardware.bolt.enable = true;
   };
 
-  
+
   # This value being lower than the current NixOS release does NOT mean your system is
   # out of date, out of support, or vulnerable.
   #

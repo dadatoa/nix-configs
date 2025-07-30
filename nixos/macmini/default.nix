@@ -6,7 +6,7 @@
     ./configuration.nix
     ./hw-conf.nix
 
-    ../common/default.nix
+    ../common/configuration.nix
     ../common/dns.nix
     ../common/users.nix
     # ../common-modules/virtualisation.nix
