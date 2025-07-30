@@ -44,6 +44,7 @@
     fzf
     gh
     git
+    git-branch
     glab
     just
     lazygit
@@ -53,6 +54,7 @@
     starship
     stow
     tmux
+    wezterm
     wget
     zoxide
   ];
