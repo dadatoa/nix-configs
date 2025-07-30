@@ -13,6 +13,8 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  ## enable systemd boot
+  boot.loader.systemd-boot.enable = true;
 
   services.samba.enable = true;
   services.samba.package = pkgs.samba4Full;

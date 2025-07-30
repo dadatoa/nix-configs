@@ -44,7 +44,7 @@
     fzf
     gh
     git
-    git-branch
+    git-graph
     glab
     just
     lazygit
