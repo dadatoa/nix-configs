@@ -68,6 +68,8 @@
       "stats"
       "wezterm"
     ];
-    brews = [ ];
+    brews = [
+      "git-graph" ## broken in nixpkgs
+    ];
   };
 }
