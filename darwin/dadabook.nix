@@ -40,6 +40,7 @@
     # fastfetch
     # overmind # process manager
     rclone
+    ripgrep # for live grep with telescope in nvim
     rsync
     sesh
     starship
