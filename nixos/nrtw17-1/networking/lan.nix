@@ -13,6 +13,16 @@
           Id = 100;
         };
       };
+      "20-vlan66" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = "vlan66";
+          Description = "VLAN for testing purposes";
+        };
+        vlanConfig = {
+          Id = 66;
+        };
+      };
     };
     ## network interfaces
     networks = {
@@ -26,6 +36,7 @@
         ## add vlans on physical interface
         vlan = [
           "vlan100"
+          "vlan66"
         ];
       };
       ## add virtual interfaces for vlan
@@ -37,6 +48,15 @@
         #   # "fd42:23:42:b865::1/64"
         #   # "fe80::1/64"
         # ];
+      };
+      "50-vlan66" = {
+        matchConfig.Name = "vlan66";
+        # networkConfig.DHCP = "ipv4";
+        address = [
+          "10.66.66.1/24"
+          # "fd42:23:42:b865::1/64"
+          # "fe80::1/64"
+        ];
       };
     };
   };

@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }:
 {
 
@@ -22,37 +21,33 @@
     };
   };
 
-  # programs.zsh.enable = true;
-
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
-    # ansible
+    # inputs.nixvim.packages.${system}.default # add neovim classic way with homebrew
+    ansible
     bat
-    # docker
     eza
     ext4fuse
     fish
     fzf
-    # gh
-    # ghostty  ## broken package
+    gh
     git
-    # glab
+    glab
     lazygit
     lima
-    # nmap
-    # nodejs
+    nushell
+    nmap
+    nodejs
     # fastfetch
     # overmind # process manager
     rclone
+    ripgrep # for live grep with telescope in nvim
     rsync
     sesh
     starship
     stow
     telescope
     tmux
-    # wezterm # via homebrew
     zoxide
-    # zsh
   ];
 
   ## enable homebrew package manager
@@ -70,6 +65,7 @@
     ];
     brews = [
       "git-graph" ## broken in nixpkgs
+      "neovim"
     ];
   };
 }

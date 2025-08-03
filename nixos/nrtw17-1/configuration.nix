@@ -10,6 +10,7 @@
     kea
     overmind
     pv
+    sesh
   ];
 
   services = {

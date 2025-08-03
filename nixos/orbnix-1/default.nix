@@ -13,16 +13,11 @@
     ## include main configuration file from orbastck
     ./configuration.nix
 
-    ## custom conf
-    ./nfs-client.nix
-    ./users.nix
-    ../common/configuration.nix
-    ../common/virtualisation/podman.nix
   ];
 
   ## custom configuration
   environment.systemPackages = with pkgs; [
-    sesh
+    neovim
   ];
 
 }
