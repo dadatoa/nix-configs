@@ -34,6 +34,7 @@
     glab
     lazygit
     lima
+    nushell
     nmap
     nodejs
     # fastfetch
