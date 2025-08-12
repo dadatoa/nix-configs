@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 {
 
@@ -56,10 +55,10 @@
 
   ## wireless
   networking.wireless = {
-    enable = false;
-    # secretsFile = "/run/secrets/wireless.conf";
+    enable = true;
+    secretsFile = "/etc/wpa_supplicant.conf";
     interfaces = [
-      "wlp0s20f0u1"
+      "wlp3s0"
     ];
     userControlled.enable = true;
   };
