@@ -23,11 +23,10 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixpkgs-unstable,
-      nix-darwin,
-      ...
+    { nixpkgs
+    , nixpkgs-unstable
+    , nix-darwin
+    , ...
     }@inputs:
     let
 
@@ -43,6 +42,13 @@
     in
     {
       nixosConfigurations = {
+        ## Iso configs
+        aarch64virtIso = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            ./customIso/aarch64virt.nix
+          ];
+        };
         ## virtual machines
         orbnix-1 = nixpkgs-unstable.lib.nixosSystem {
           system = "aarch64-linux";
