@@ -1,18 +1,5 @@
+{ ... }:
 {
-  config,
-  lib,
-  ...
-}:
-{
-
-  networking.hostName = "nara17";
-
-  networking.firewall.enable = false;
-  # networking.interfaces."enp2s0".wakeOnLan.enable = true; # issue when rebuild?
-
-  ## manage network with systemd
-  networking.useNetworkd = true;
-  systemd.network.enable = true;
   systemd.network = {
     ## declare vlan
     netdevs = {
@@ -24,6 +11,16 @@
         };
         vlanConfig = {
           Id = 100;
+        };
+      };
+      "20-vlan66" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = "vlan66";
+          Description = "VLAN for testing purposes";
+        };
+        vlanConfig = {
+          Id = 66;
         };
       };
     };
@@ -39,6 +36,7 @@
         ## add vlans on physical interface
         vlan = [
           "vlan100"
+          "vlan66"
         ];
       };
       ## add virtual interfaces for vlan
@@ -51,16 +49,16 @@
         #   # "fe80::1/64"
         # ];
       };
+      "50-vlan66" = {
+        matchConfig.Name = "vlan66";
+        # networkConfig.DHCP = "ipv4";
+        address = [
+          "10.66.66.1/24"
+          # "fd42:23:42:b865::1/64"
+          # "fe80::1/64"
+        ];
+      };
     };
   };
 
-  ## wireless
-  networking.wireless = {
-    enable = false;
-    # secretsFile = "/run/secrets/wireless.conf";
-    interfaces = [
-      "wlp0s20f0u1"
-    ];
-    userControlled.enable = true;
-  };
 }
